@@ -12,6 +12,58 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <!-- HEADER -->
+    <header>
+      <div class="navbar">
+        <!-- Brand (logo + naziv) -->
+        <div class="brand">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
+            alt="Biblioteka logo"
+            class="logo"
+          />
+          <span class="logo-title">Biblioteka</span>
+        </div>
+
+        <!-- Navbar -->
+        <nav class="primary-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Knjige</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Akcije -->
+        <div class="actions">
+          <div class="search">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+              alt="Search"
+              width="18"
+            />
+            <input type="text" placeholder="Search" />
+          </div>
+
+          <a href="#" class="action-link">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+              alt="Cart"
+              width="18"
+            />
+          </a>
+
+          <a href="../login/index.html" class="action-link">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+              alt="Login"
+              width="18"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
     <h1>Checkout</h1>
 
     <form>
@@ -19,13 +71,13 @@
         <legend>Podaci o kupcu</legend>
 
         <label>Ime i prezime:</label><br />
-        <input type="text" placeholder="Ime i prezime" required /><br /><br />
+        <input type="text" placeholder="Ime i prezime" class="text-input" required /><br /><br />
 
         <label>Adresa:</label><br />
-        <input type="text" placeholder="Ulica i broj" required /><br /><br />
+        <input type="text" placeholder="Ulica i broj" class="text-input" required /><br /><br />
 
         <label>Broj stana / sprat (opciono):</label><br />
-        <input type="text" placeholder="Broj stana, sprat" /><br /><br />
+        <input type="text" placeholder="Broj stana, sprat" class="text-input" /><br /><br />
 
         <label>Grad:</label><br />
         <select required>
@@ -53,7 +105,7 @@
         <br /><br />
 
         <label>Poštanski broj:</label><br />
-        <input type="text" placeholder="11000" required /><br /><br />
+        <input type="text" placeholder="11000" class="text-input" required /><br /><br />
 
         <label> <input type="checkbox" /> Sačuvaj kontakt informacije </label>
       </fieldset>
@@ -93,16 +145,16 @@
         <br /><br />
 
         <label>Ime vlasnika kartice:</label><br />
-        <input type="text" placeholder="Ime na kartici" /><br /><br />
+        <input type="text" placeholder="Ime na kartici" class="text-input" /><br /><br />
 
         <label>Broj kartice:</label><br />
-        <input type="text" placeholder="1234 5678 9101 1121" /><br /><br />
+        <input type="text" placeholder="1234 5678 9101 1121" class="text-input" /><br /><br />
 
         <label>Datum isteka:</label><br />
-        <input type="text" placeholder="MM/YY" /><br /><br />
+        <input type="text" placeholder="MM/YY" class="text-input" /><br /><br />
 
         <label>CVC kod:</label><br />
-        <input type="text" placeholder="123" /><br /><br />
+        <input type="text" placeholder="123" class="text-input" /><br /><br />
 
         <label> <input type="checkbox" /> Sačuvaj podatke o kartici </label>
       </fieldset>

@@ -21,7 +21,6 @@ body {
   color: #374151;
   line-height: 1.6;
   font-size: 1rem;
-  padding: 24px 16px;
 }
 
 /* =====================
@@ -39,6 +38,156 @@ label {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--primary);
+}
+
+/* ===========
+   HEADER
+=========== */
+
+header {
+  background: linear-gradient(
+    135deg,
+    rgba(44, 79, 64, 0.85),
+    rgba(26, 47, 39, 0.85)
+  );
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  margin-bottom: 13px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+}
+
+/* BRAND */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand .logo {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
+}
+
+.logo-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #f9fafb;
+  letter-spacing: 0.3px;
+}
+
+/* NAVBAR */
+.primary-nav {
+  display: none;
+}
+
+.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+}
+
+.primary-nav a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.primary-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--secondary), #34d399);
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.primary-nav a:hover::after {
+  width: 100%;
+}
+
+/* ACTIONS */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.action-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.action-link img {
+  width: 20px;
+  height: 20px;
+}
+
+.action-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* SEARCH */
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.search img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+.search input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 0.9rem;
+  width: 120px;
+}
+
+.search input::placeholder {
+  color: #d1d5db;
+}
+
+.search:focus-within {
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.35);
 }
 
 /* =====================
@@ -75,7 +224,7 @@ legend {
 }
 
 /* INPUTS */
-input[type="text"],
+.text-input,
 select {
   width: 100%;
   padding: 0.75rem 0.9rem;
@@ -83,7 +232,9 @@ select {
   border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 0.95rem;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 input::placeholder {
@@ -140,10 +291,6 @@ br {
 
 /* TABLET ≥ 768px */
 @media (min-width: 768px) {
-  body {
-    padding: 40px 24px;
-  }
-
   h1 {
     font-size: 2rem;
     margin-bottom: 40px;
@@ -162,14 +309,29 @@ br {
     padding: 14px 40px;
     font-size: 1.05rem;
   }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 9px 18px;
+  }
+
+  .primary-nav {
+    display: block;
+  }
+
+  .logo-title {
+    font-size: 1.6rem;
+  }
+
+  .search input {
+    width: 160px;
+  }
 }
 
 /* DESKTOP ≥ 1024px */
 @media (min-width: 1024px) {
-  body {
-    padding: 60px 24px;
-  }
-
   h1 {
     font-size: 2.5rem;
   }
@@ -194,5 +356,21 @@ br {
 
   .btn {
     font-size: 1rem;
+  }
+
+  .navbar {
+    padding: 14px 32px;
+  }
+
+  .search input {
+    width: 200px;
+  }
+
+  .primary-nav ul {
+    gap: 32px;
+  }
+
+  .action-link {
+    font-size: 0.95rem;
   }
 }
