@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="sr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Knjiga - "Tajna vatra"</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn-icons-png.flaticon.com/512/29/29302.png"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="navbar">
+        <!-- Brand (logo + naziv) -->
+        <div class="brand">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
+            alt="Biblioteka logo"
+            class="logo"
+          />
+          <span class="logo-title">Biblioteka</span>
+        </div>
+
+        <!-- Navbar -->
+        <nav class="primary-nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Knjige</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Akcije -->
+        <div class="actions">
+          <div class="search">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+              alt="Search"
+              width="18"
+            />
+            <input type="text" placeholder="Search" />
+          </div>
+
+          <a href="#" class="action-link">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+              alt="Cart"
+              width="18"
+            />
+          </a>
+
+          <a href="../login/index.html" class="action-link">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+              alt="Login"
+              width="18"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="product">
+        <h2 class="page-title">
+          Tajna vatra — Karina Rozenfeld & K. Dž. Doerti
+        </h2>
+        <img
+          src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200"
+          srcset="
+            https://images.unsplash.com/photo-1512820790803-83ca734da794?w=480   480w,
+            https://images.unsplash.com/photo-1512820790803-83ca734da794?w=768   768w,
+            https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200 1200w
+          "
+          sizes="(max-width: 768px) 100vw, 300px"
+          alt="Naslovna stranica knjige Tajna vatra"
+          class="product-main-image"
+        />
+        <p class="price"><strong>Cena:</strong> 899 RSD</p>
+        <p><strong>Dostupnost:</strong> Na stanju</p>
+        <p><strong>Ocena:</strong> ★★★★☆ (4.7)</p>
+        <p>
+          Francuski tinejdžer Saša Vinters ne može da umre. Sve do dana kad će
+          se ispuniti davno zaboravljeno predskazanje. Najgore od svega, njegova
+          smrt će pokrenuti nešto užasno. Tejlor Monkler odjednom počne snagom
+          mozga da pravi električne kratke spojeve. Osim toga, jedino ona na
+          celom svetu može da spase Sašu. Postoji samo nekoliko sitnih problema:
+          njih dvoje se uopšte ne znaju, žive u različitim zemljama, moćne sile
+          ne prezaju ni od čega da ih drže razdvojeno.
+        </p>
+        <button class="btn">Dodaj u korpu</button>
+      </section>
+
+      <!-- DODATNE SLIKE -->
+      <section>
+        <h3 class="section-title">Dodatne slike</h3>
+        <div class="gallery">
+          <img
+            src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+            width="150"
+            alt="Ilustracija 1"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+            width="150"
+            alt="Ilustracija 2"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1516979187457-637abb4f9353"
+            width="150"
+            alt="Ilustracija 3"
+          />
+        </div>
+      </section>
+
+      <!-- OPIS -->
+      <section>
+        <h3>Detaljan opis</h3>
+        <p>
+          Francuski tinejdžer Saša Vinters ne može da umre. Može da se baci s
+          krova, mogu da ga izbodu nožem, čak i pogode metkom, uvek će
+          preživeti. Sve do dana kad će se ispuniti davno zaboravljeno
+          predskazanje. Najgore od svega, njegova smrt će pokrenuti nešto
+          užasno. Nešto nezamislivo smrtonosno. A taj dan se bliži. Tejlor
+          Monkler je marljiva engleska gimnazijalka koja izlazi s društvom i
+          žudi da se upiše na Oksfordski univerzitet sve dok ne počne snagom
+          mozga da pravi električne kratke spojeve. Osim toga, jedino ona na
+          celom svetu može da spase Sašu. Postoji samo nekoliko sitnih problema:
+          njih dvoje se uopšte ne znaju, žive u različitim zemljama, moćne sile
+          ne prezaju ni od čega da ih drže razdvojeno.
+        </p>
+
+        <ul>
+          <li>Autori: Karina Rozenfeld, K. Dž. Doerti</li>
+          <li>Broj strana: 352</li>
+          <li>Format: Meki povez</li>
+          <li>Žanr: Fantastika / Avantura / YA</li>
+        </ul>
+      </section>
+
+      <!-- RECENZIJE -->
+      <section>
+        <h3>Recenzije čitalaca</h3>
+        <p class="review">
+          <strong>Jovana:</strong> ★★★★★ "Ne mogu da ostavim knjigu — svet je
+          upečatljiv, likovi realni, a tempo odličan."
+        </p>
+        <p class="review">
+          <strong>Petar:</strong> ★★★★☆ "Sjajna knjiga za mlađe i starije,
+          jedino bih voleo malo više objašnjenja o poreklu magije."
+        </p>
+      </section>
+
+      <!-- SLIČNE KNJIGE -->
+      <section>
+        <h3>Slične knjige</h3>
+        <ul class="related">
+          <li>
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794"
+              width="80"
+              alt="Slična 1"
+            />
+            "Tajni grad" — Karina Rozenfeld & K. Dž. Doerti
+          </li>
+          <li>
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794"
+              width="80"
+              alt="Slična 2"
+            />
+            "Čuvari svetlosti" — B. Autor
+          </li>
+          <li>
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794"
+              width="80"
+              alt="Slična 3"
+            />
+            "Put magije" — C. Pisac
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>
+        <h3 class="footer-title">Categories</h3>
+        <ul>
+          <li>Fantastika</li>
+          <li>Avantura</li>
+          <li>YA</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-title">Information</h3>
+        <ul>
+          <li>About Us</li>
+          <li>Privacy Policy</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="footer-title">Customer Service</h3>
+        <ul>
+          <li>Contact</li>
+          <li>FAQs</li>
+          <li>Support</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

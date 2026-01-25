@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #1f2933;
+  --secondary: #0bf59b;
+  --border: #e5e7eb;
+  --radius: 12px;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.848),
+    rgba(209, 225, 209, 0.753)
+  );
+  color: #374151;
+  line-height: 1.6;
+  font-size: 1rem;
+  padding: 24px 16px;
+}
+
+/* =====================
+   TYPOGRAPHY
+===================== */
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+/* =====================
+   FORMA
+===================== */
+form {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* FIELDSET */
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+legend {
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* INPUTS */
+input[type="text"],
+select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  margin-top: 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder {
+  color: #6b7280;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(11, 245, 132, 0.2);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 8px;
+  accent-color: var(--secondary);
+}
+
+.paypal-logo {
+  vertical-align: middle;
+  margin: 0 6px;
+}
+
+br {
+  content: "";
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* DUGME */
+.btn {
+  width: 100%;
+  margin-top: 24px;
+  background-color: var(--secondary);
+  color: #000;
+  border: none;
+  padding: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #24fb7a;
+  box-shadow: 0 8px 20px rgba(11, 245, 97, 0.4);
+}
+
+/* =====================
+   RESPONSIVNESS
+===================== */
+
+/* TABLET ≥ 768px */
+@media (min-width: 768px) {
+  body {
+    padding: 40px 24px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  form {
+    padding: 32px;
+  }
+
+  legend {
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    width: auto;
+    padding: 14px 40px;
+    font-size: 1.05rem;
+  }
+}
+
+/* DESKTOP ≥ 1024px */
+@media (min-width: 1024px) {
+  body {
+    padding: 60px 24px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  form {
+    max-width: 800px;
+    padding: 40px;
+  }
+
+  legend {
+    font-size: 1.1rem;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  input[type="text"],
+  select {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+  }
+}
