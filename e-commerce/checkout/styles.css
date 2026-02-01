@@ -155,10 +155,6 @@ header {
   box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.35);
 }
 
-.navbar-toggler-icon {
-  filter: invert(1);
-}
-
 /* =====================
    CART REVIEW
 ===================== */
