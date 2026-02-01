@@ -57,21 +57,7 @@ header {
   margin-bottom: 13px;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 10px 16px;
-}
-
 /* BRAND */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .brand .logo {
   width: 32px;
   height: 32px;
@@ -86,16 +72,8 @@ header {
 }
 
 /* NAVBAR */
-.primary-nav {
-  display: none;
-}
-
 .primary-nav ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 28px;
 }
 
 .primary-nav a {
@@ -125,16 +103,7 @@ header {
 }
 
 /* ACTIONS */
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
 .action-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #e5e7eb;
   text-decoration: none;
   transition:
@@ -154,9 +123,6 @@ header {
 
 /* SEARCH */
 .search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   background: rgba(255, 255, 255, 0.12);
   padding: 6px 10px;
   border-radius: 999px;
@@ -176,7 +142,6 @@ header {
   background: none;
   border: none;
   outline: none;
-  color: #ffffff;
   font-size: 0.9rem;
   width: 120px;
 }
@@ -188,6 +153,10 @@ header {
 .search:focus-within {
   background: rgba(255, 255, 255, 0.16);
   box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.35);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
 }
 
 /* =====================
@@ -496,10 +465,6 @@ footer {
     padding: 9px 18px;
   }
 
-  .primary-nav {
-    display: block;
-  }
-
   .logo-title {
     font-size: 1.6rem;
   }
@@ -537,16 +502,8 @@ footer {
     font-size: 1rem;
   }
 
-  .navbar {
-    padding: 14px 32px;
-  }
-
   .search input {
     width: 200px;
-  }
-
-  .primary-nav ul {
-    gap: 32px;
   }
 
   .action-link {

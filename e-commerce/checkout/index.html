@@ -20,9 +20,9 @@
   <body>
     <!-- HEADER -->
     <header>
-      <div class="navbar">
+      <div class="container-fluid d-flex align-items-center justify-content-between gap-3 py-2 px-3 px-lg-4">
         <!-- Brand (logo + naziv) -->
-        <div class="brand">
+        <div class="brand d-flex align-items-center gap-2">
           <img
             src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
             alt="Biblioteka logo"
@@ -32,8 +32,8 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="primary-nav">
-          <ul>
+        <nav class="primary-nav d-none d-md-block">
+          <ul class="d-flex gap-4 mb-0 p-0">
             <li><a href="#">Home</a></li>
             <li><a href="#">Knjige</a></li>
             <li><a href="#">About</a></li>
@@ -42,17 +42,17 @@
         </nav>
 
         <!-- Akcije -->
-        <div class="actions">
-          <div class="search">
+        <div class="d-flex align-items-center gap-3">
+          <div class="search d-flex align-items-center gap-2">
             <img
               src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
               alt="Search"
               width="18"
             />
-            <input type="text" placeholder="Search" />
+            <input type="text" placeholder="Search" class="d-none d-sm-block d-md-block text-white" />
           </div>
 
-          <a href="#" class="action-link">
+          <a href="#" class="action-link d-flex align-items-center justify-content-center">
             <img
               src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
               alt="Cart"
@@ -60,7 +60,7 @@
             />
           </a>
 
-          <a href="../login/index.html" class="action-link">
+          <a href="../login/index.html" class="action-link d-flex align-items-center justify-content-center">
             <img
               src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
               alt="Login"
