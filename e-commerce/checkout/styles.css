@@ -72,11 +72,11 @@ header {
 }
 
 /* NAVBAR */
-.primary-nav ul {
+.navbar ul {
   list-style: none;
 }
 
-.primary-nav a {
+.navbar a {
   color: #e5e7eb;
   text-decoration: none;
   font-size: 0.95rem;
@@ -85,7 +85,7 @@ header {
   transition: color 0.3s ease;
 }
 
-.primary-nav a::after {
+.navbar a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -98,8 +98,12 @@ header {
   transform: translateX(-50%);
 }
 
-.primary-nav a:hover::after {
+.navbar a:hover::after {
   width: 100%;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
 }
 
 /* ACTIONS */
