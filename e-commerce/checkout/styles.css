@@ -165,7 +165,6 @@ header {
 
 .cart-review {
   max-width: 70ch;
-  margin: 32px auto;
   padding: 24px;
   border-radius: var(--radius);
   background: linear-gradient(

@@ -142,208 +142,221 @@
 
     <h1>Checkout</h1>
 
-    <!-- KORPA -->
-    <section class="cart-review">
-      <h2>Pregled korpe</h2>
+    <div class="container my-5">
+      <div class="row g-4">
+        
+        <!-- KORPA -->
+        <div class="col-12 col-lg-4 order-1 order-lg-2">
+          <section class="cart-review">
+            <h2>Pregled korpe</h2>
 
-      <ul class="cart-items">
-        <li>
-          <div class="item-info">
-            <img
-              src="https://laguna.rs/_img/korice/3604/tajna_vatra-karina_rozenfeld-_k_dz_doerti_v.jpg?v=1506679724"
-              alt="Tajna vatra"
-              class="cart-img"
-            />
-            <span class="item-title">Tajna vatra</span>
-          </div>
-          <span class="item-price">999 RSD</span>
-        </li>
+            <ul class="cart-items">
+              <li>
+                <div class="item-info">
+                  <img
+                    src="https://laguna.rs/_img/korice/3604/tajna_vatra-karina_rozenfeld-_k_dz_doerti_v.jpg?v=1506679724"
+                    alt="Tajna vatra"
+                    class="cart-img"
+                  />
+                  <span class="item-title">Tajna vatra</span>
+                </div>
+                <span class="item-price">999 RSD</span>
+              </li>
 
-        <li>
-          <div class="item-info">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/sr/thumb/d/dd/Smrt_na_Nilu.jpg/250px-Smrt_na_Nilu.jpg"
-              alt="Smrt na Nilu - Agata Kristi"
-              class="cart-img"
-            />
-            <span class="item-title">Smrt na Nilu</span>
-          </div>
-          <span class="item-price">799 RSD</span>
-        </li>
+              <li>
+                <div class="item-info">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/sr/thumb/d/dd/Smrt_na_Nilu.jpg/250px-Smrt_na_Nilu.jpg"
+                    alt="Smrt na Nilu - Agata Kristi"
+                    class="cart-img"
+                  />
+                  <span class="item-title">Smrt na Nilu</span>
+                </div>
+                <span class="item-price">799 RSD</span>
+              </li>
 
-        <li>
-          <div class="item-info">
-            <img
-              src="https://www.knjizare-vulkan.rs/files/watermark/files/images/slike_proizvoda/thumbs_w/241612_w_0_0px.jpg"
-              alt="Isijavanje - Stiven King"
-              class="cart-img"
-            />
-            <span class="item-title">Isijavanje</span>
-          </div>
-          <span class="item-price">1.599 RSD</span>
-        </li>
-      </ul>
+              <li>
+                <div class="item-info">
+                  <img
+                    src="https://www.knjizare-vulkan.rs/files/watermark/files/images/slike_proizvoda/thumbs_w/241612_w_0_0px.jpg"
+                    alt="Isijavanje - Stiven King"
+                    class="cart-img"
+                  />
+                  <span class="item-title">Isijavanje</span>
+                </div>
+                <span class="item-price">1.599 RSD</span>
+              </li>
+            </ul>
 
-      <div class="cart-total">
-        <span>Ukupno:</span>
-        <strong>3.397 RSD</strong>
+            <div class="cart-total">
+              <span>Ukupno:</span>
+              <strong>3.397 RSD</strong>
+            </div>
+          </section>
+        </div>
+
+        <!-- PODACI O KUPCU -->
+        <div class="col-12 col-lg-8 order-2 order-lg-1">
+          <form>
+            <h2>Podaci o kupcu</h2>
+
+            <br />
+
+            <fieldset>
+              <label for="full-name">Ime i prezime:</label><br />
+              <input
+                type="text"
+                placeholder="Ime i prezime"
+                class="text-input"
+                id="full-name"
+                required
+              /><br /><br />
+
+              <label for="address">Adresa:</label><br />
+              <input
+                type="text"
+                placeholder="Ulica i broj"
+                class="text-input"
+                id="address"
+                required
+              /><br /><br />
+
+              <label for="precise-address">Broj stana / sprat (opciono):</label
+              ><br />
+              <input
+                type="text"
+                placeholder="Broj stana, sprat"
+                class="text-input"
+                id="precise-address"
+              /><br /><br />
+
+              <label>Grad:</label><br />
+              <select required>
+                <option value="">Izaberi grad</option>
+                <option>Beograd</option>
+                <option>Novi Sad</option>
+                <option>Niš</option>
+                <option>Niš</option>
+                <option>Kragujevac</option>
+                <option>Ostalo</option>
+              </select>
+
+              <br /><br />
+
+              <label>Zemlja:</label><br />
+              <select required>
+                <option value="">Izaberi zemlju</option>
+                <option>Srbija</option>
+                <option>Crna Gora</option>
+                <option>BiH</option>
+                <option>Hrvatska</option>
+                <option>Ostalo</option>
+              </select>
+
+              <br /><br />
+
+              <label for="postal-code">Poštanski broj:</label><br />
+              <input
+                type="text"
+                placeholder="11000"
+                class="text-input"
+                id="postal-code"
+                required
+              /><br /><br />
+
+              <label for="save-contact">
+                <input type="checkbox" id="save-contact" /> Sačuvaj kontakt
+                informacije
+              </label>
+            </fieldset>
+          </form>
+        </div>
+
+        <br />
+
+        <!-- PLAĆANJE -->
+        <div class="col-12 col-lg-8 order-3 order-lg-3">
+          <form>
+            <h2>Plaćanje</h2>
+
+            <br />
+
+            <fieldset>
+              <!-- PayPal -->
+              <label for="paypal">
+                <input type="radio" name="payment" id="paypal" value="paypal" />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/174/174861.png"
+                  width="20"
+                  alt="PayPal"
+                  class="paypal-logo"
+                />
+                PayPal
+              </label>
+
+              <br /><br />
+
+              <!-- Gotovina -->
+              <label for="cash">
+                <input type="radio" name="payment" id="cash" value="cash" />
+                Plaćanje gotovinom
+              </label>
+
+              <br /><br />
+
+              <!-- Kartica -->
+              <label for="card">
+                <input type="radio" name="payment" id="card" value="card" />
+                Platna kartica
+              </label>
+
+              <br /><br />
+
+              <label for="card-owner">Ime vlasnika kartice:</label><br />
+              <input
+                type="text"
+                placeholder="Ime na kartici"
+                class="text-input"
+                id="card-owner"
+              /><br /><br />
+
+              <label for="card-number">Broj kartice:</label><br />
+              <input
+                type="text"
+                placeholder="1234 5678 9101 1121"
+                class="text-input"
+                id="card-number"
+              /><br /><br />
+
+              <label for="card-date">Datum isteka:</label><br />
+              <input
+                type="text"
+                placeholder="MM/YY"
+                class="text-input"
+                id="card-date"
+              /><br /><br />
+
+              <label for="cvc">CVC kod:</label><br />
+              <input
+                type="text"
+                placeholder="123"
+                class="text-input"
+                id="cvc"
+              /><br /><br />
+
+              <label for="save-payment">
+                <input type="checkbox" id="save-payment" /> Sačuvaj podatke o
+                kartici
+              </label>
+            </fieldset>
+
+            <br />
+
+            <button type="submit" class="btn">Potvrdi kupovinu</button>
+          </form>
+        </div>
       </div>
-    </section>
-
-    <!-- PODACI O KUPCU -->
-    <form>
-      <h2>Podaci o kupcu</h2>
-
-      <br />
-
-      <fieldset>
-        <label for="full-name">Ime i prezime:</label><br />
-        <input
-          type="text"
-          placeholder="Ime i prezime"
-          class="text-input"
-          id="full-name"
-          required
-        /><br /><br />
-
-        <label for="address">Adresa:</label><br />
-        <input
-          type="text"
-          placeholder="Ulica i broj"
-          class="text-input"
-          id="address"
-          required
-        /><br /><br />
-
-        <label for="precise-address">Broj stana / sprat (opciono):</label><br />
-        <input
-          type="text"
-          placeholder="Broj stana, sprat"
-          class="text-input"
-          id="precise-address"
-        /><br /><br />
-
-        <label>Grad:</label><br />
-        <select required>
-          <option value="">Izaberi grad</option>
-          <option>Beograd</option>
-          <option>Novi Sad</option>
-          <option>Niš</option>
-          <option>Niš</option>
-          <option>Kragujevac</option>
-          <option>Ostalo</option>
-        </select>
-
-        <br /><br />
-
-        <label>Zemlja:</label><br />
-        <select required>
-          <option value="">Izaberi zemlju</option>
-          <option>Srbija</option>
-          <option>Crna Gora</option>
-          <option>BiH</option>
-          <option>Hrvatska</option>
-          <option>Ostalo</option>
-        </select>
-
-        <br /><br />
-
-        <label for="postal-code">Poštanski broj:</label><br />
-        <input
-          type="text"
-          placeholder="11000"
-          class="text-input"
-          id="postal-code"
-          required
-        /><br /><br />
-
-        <label for="save-contact">
-          <input type="checkbox" id="save-contact" /> Sačuvaj kontakt
-          informacije
-        </label>
-      </fieldset>
-    </form>
-
-    <br />
-
-    <!-- PLAĆANJE -->
-    <form>
-      <h2>Plaćanje</h2>
-
-      <br />
-
-      <fieldset>
-        <!-- PayPal -->
-        <label for="paypal">
-          <input type="radio" name="payment" id="paypal" value="paypal" />
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/174/174861.png"
-            width="20"
-            alt="PayPal"
-            class="paypal-logo"
-          />
-          PayPal
-        </label>
-
-        <br /><br />
-
-        <!-- Gotovina -->
-        <label for="cash">
-          <input type="radio" name="payment" id="cash" value="cash" /> Plaćanje
-          gotovinom
-        </label>
-
-        <br /><br />
-
-        <!-- Kartica -->
-        <label for="card">
-          <input type="radio" name="payment" id="card" value="card" /> Platna
-          kartica
-        </label>
-
-        <br /><br />
-
-        <label for="card-owner">Ime vlasnika kartice:</label><br />
-        <input
-          type="text"
-          placeholder="Ime na kartici"
-          class="text-input"
-          id="card-owner"
-        /><br /><br />
-
-        <label for="card-number">Broj kartice:</label><br />
-        <input
-          type="text"
-          placeholder="1234 5678 9101 1121"
-          class="text-input"
-          id="card-number"
-        /><br /><br />
-
-        <label for="card-date">Datum isteka:</label><br />
-        <input
-          type="text"
-          placeholder="MM/YY"
-          class="text-input"
-          id="card-date"
-        /><br /><br />
-
-        <label for="cvc">CVC kod:</label><br />
-        <input
-          type="text"
-          placeholder="123"
-          class="text-input"
-          id="cvc"
-        /><br /><br />
-
-        <label for="save-payment">
-          <input type="checkbox" id="save-payment" /> Sačuvaj podatke o kartici
-        </label>
-      </fieldset>
-
-      <br />
-
-      <button type="submit" class="btn">Potvrdi kupovinu</button>
-    </form>
+    </div>
 
     <!-- FOOTER -->
     <footer>
