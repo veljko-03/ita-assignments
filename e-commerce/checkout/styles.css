@@ -152,7 +152,6 @@ header {
 /* =====================
    CART REVIEW
 ===================== */
-
 .cart-review {
   max-width: 70ch;
   padding: 24px;
@@ -169,9 +168,7 @@ header {
 }
 
 .cart-review h2 {
-  margin-bottom: 20px;
   color: var(--primary);
-  font-size: 1.4rem;
 }
 
 /* ITEMS */
