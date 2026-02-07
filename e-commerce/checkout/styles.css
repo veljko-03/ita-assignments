@@ -187,22 +187,11 @@ header {
 
 /* TOTAL */
 .cart-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 16px;
-  font-size: 1.2rem;
   border-top: 2px solid var(--secondary);
 }
 
 .cart-total strong {
   color: var(--primary);
-}
-
-.item-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
 }
 
 .cart-img {
@@ -309,10 +298,6 @@ footer img:hover {
     padding: 32px;
   }
 
-  legend {
-    font-size: 1.05rem;
-  }
-
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -338,10 +323,6 @@ footer img:hover {
   form {
     max-width: 800px;
     padding: 40px;
-  }
-
-  legend {
-    font-size: 1.1rem;
   }
 
   .search input {
