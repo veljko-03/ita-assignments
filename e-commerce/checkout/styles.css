@@ -23,17 +23,6 @@ body {
   font-size: 1rem;
 }
 
-/* =====================
-   TYPOGRAPHY
-===================== */
-h1 {
-  text-align: center;
-  margin-bottom: 32px;
-  color: var(--primary);
-  font-size: 1.8rem;
-  font-weight: 600;
-}
-
 /* ===========
    HEADER
 =========== */
@@ -285,11 +274,6 @@ footer img:hover {
 
 /* TABLET ≥ 768px */
 @media (min-width: 768px) {
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-  }
-
   form {
     padding: 32px;
   }
@@ -312,10 +296,6 @@ footer img:hover {
 
 /* DESKTOP ≥ 1024px */
 @media (min-width: 1024px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
   form {
     max-width: 800px;
     padding: 40px;
