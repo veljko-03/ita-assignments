@@ -232,13 +232,6 @@ form {
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
-/* FIELDSET */
-fieldset {
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
-}
-
 legend {
   padding: 0 10px;
   font-size: 1rem;
