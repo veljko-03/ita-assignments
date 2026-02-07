@@ -144,7 +144,7 @@
 
     <div class="container my-5">
       <div class="row g-4">
-        
+
         <!-- KORPA -->
         <div class="col-12 col-lg-4 order-1 order-lg-2">
           <section class="cart-review">
@@ -203,35 +203,35 @@
             <br />
 
             <fieldset>
-              <label for="full-name">Ime i prezime:</label><br />
+              <label for="full-name" class="form-label">Ime i prezime:</label><br />
               <input
                 type="text"
                 placeholder="Ime i prezime"
-                class="text-input"
+                class="form-control"
                 id="full-name"
                 required
-              /><br /><br />
+              />
 
-              <label for="address">Adresa:</label><br />
+              <label for="address" class="form-label mt-4">Adresa:</label><br />
               <input
                 type="text"
                 placeholder="Ulica i broj"
-                class="text-input"
+                class="form-control"
                 id="address"
                 required
-              /><br /><br />
+              />
 
-              <label for="precise-address">Broj stana / sprat (opciono):</label
+              <label for="precise-address" class="form-label mt-4">Broj stana / sprat (opciono):</label
               ><br />
               <input
                 type="text"
                 placeholder="Broj stana, sprat"
-                class="text-input"
+                class="form-control"
                 id="precise-address"
-              /><br /><br />
+              />
 
-              <label>Grad:</label><br />
-              <select required>
+              <label class="mt-4">Grad:</label><br />
+              <select class="form-control" required>
                 <option value="">Izaberi grad</option>
                 <option>Beograd</option>
                 <option>Novi Sad</option>
@@ -241,10 +241,8 @@
                 <option>Ostalo</option>
               </select>
 
-              <br /><br />
-
-              <label>Zemlja:</label><br />
-              <select required>
+              <label class="mt-4">Zemlja:</label><br />
+              <select class="form-control" required>
                 <option value="">Izaberi zemlju</option>
                 <option>Srbija</option>
                 <option>Crna Gora</option>
@@ -253,19 +251,17 @@
                 <option>Ostalo</option>
               </select>
 
-              <br /><br />
-
-              <label for="postal-code">Poštanski broj:</label><br />
+              <label for="postal-code" class="form-label mt-4">Poštanski broj:</label><br />
               <input
                 type="text"
                 placeholder="11000"
-                class="text-input"
+                class="form-control"
                 id="postal-code"
                 required
-              /><br /><br />
+              />
 
-              <label for="save-contact">
-                <input type="checkbox" id="save-contact" /> Sačuvaj kontakt
+              <label for="save-contact" class="form-label mt-4">
+                <input type="checkbox" id="save-contact" class="form-check-input" /> Sačuvaj kontakt
                 informacije
               </label>
             </fieldset>
@@ -283,8 +279,8 @@
 
             <fieldset>
               <!-- PayPal -->
-              <label for="paypal">
-                <input type="radio" name="payment" id="paypal" value="paypal" />
+              <label for="paypal" class="form-label">
+                <input type="radio" name="payment" id="paypal" value="paypal" class="form-check-input" />
                 <img
                   src="https://cdn-icons-png.flaticon.com/512/174/174861.png"
                   width="20"
@@ -294,63 +290,62 @@
                 PayPal
               </label>
 
-              <br /><br />
-
+              <br />
+              
               <!-- Gotovina -->
-              <label for="cash">
-                <input type="radio" name="payment" id="cash" value="cash" />
+              <label for="cash" class="form-label mt-4">
+                <input type="radio" name="payment" id="cash" value="cash" class="form-check-input" />
                 Plaćanje gotovinom
               </label>
-
-              <br /><br />
-
+              
+              <br />
+              
               <!-- Kartica -->
-              <label for="card">
-                <input type="radio" name="payment" id="card" value="card" />
+              <label for="card" class="form-label mt-4">
+                <input type="radio" name="payment" id="card" value="card" class="form-check-input" />
                 Platna kartica
               </label>
 
-              <br /><br />
+              <br />
 
-              <label for="card-owner">Ime vlasnika kartice:</label><br />
+              <label for="card-owner" class="form-label mt-4">Ime vlasnika kartice:</label><br />
               <input
                 type="text"
                 placeholder="Ime na kartici"
-                class="text-input"
+                class="form-control"
                 id="card-owner"
-              /><br /><br />
+              />
 
-              <label for="card-number">Broj kartice:</label><br />
+              <label for="card-number" class="form-label mt-4">Broj kartice:</label><br />
               <input
                 type="text"
                 placeholder="1234 5678 9101 1121"
-                class="text-input"
+                class="form-control"
                 id="card-number"
-              /><br /><br />
+              />
 
-              <label for="card-date">Datum isteka:</label><br />
+              <label for="card-date" class="form-label mt-4">Datum isteka:</label><br />
               <input
                 type="text"
                 placeholder="MM/YY"
-                class="text-input"
+                class="form-control"
                 id="card-date"
-              /><br /><br />
+              />
 
-              <label for="cvc">CVC kod:</label><br />
+              <label for="cvc" class="form-label mt-4">CVC kod:</label><br />
               <input
                 type="text"
                 placeholder="123"
-                class="text-input"
+                class="form-control"
                 id="cvc"
-              /><br /><br />
+              />
 
-              <label for="save-payment">
-                <input type="checkbox" id="save-payment" /> Sačuvaj podatke o
+              <label for="save-payment" class="form-label mt-4">
+                <input type="checkbox" id="save-payment" class="form-check-input" /> Sačuvaj podatke o
                 kartici
               </label>
             </fieldset>
 
-            <br />
 
             <button type="submit" class="btn">Potvrdi kupovinu</button>
           </form>

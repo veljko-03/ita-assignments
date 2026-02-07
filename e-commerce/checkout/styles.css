@@ -34,12 +34,6 @@ h1 {
   font-weight: 600;
 }
 
-label {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--primary);
-}
-
 /* ===========
    HEADER
 =========== */
@@ -280,46 +274,9 @@ legend {
   color: var(--primary);
 }
 
-/* INPUTS */
-.text-input,
-select {
-  width: 100%;
-  padding: 0.75rem 0.9rem;
-  margin-top: 6px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
-}
-
-input::placeholder {
-  color: #6b7280;
-}
-
-input:focus,
-select:focus {
-  outline: none;
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 3px rgba(11, 245, 132, 0.2);
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  margin-right: 8px;
-  accent-color: var(--secondary);
-}
-
 .paypal-logo {
   vertical-align: middle;
   margin: 0 6px;
-}
-
-br {
-  content: "";
-  display: block;
-  margin-bottom: 12px;
 }
 
 /* DUGME */
@@ -486,15 +443,6 @@ footer {
 
   legend {
     font-size: 1.1rem;
-  }
-
-  label {
-    font-size: 1rem;
-  }
-
-  input[type="text"],
-  select {
-    font-size: 1rem;
   }
 
   .btn {
