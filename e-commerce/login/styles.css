@@ -23,15 +23,6 @@ body {
   font-size: 1rem;
 }
 
-/* =====================
-   TYPOGRAPHY
-===================== */
-label {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--primary);
-}
-
 /* ===========
    HEADER
 =========== */
@@ -169,35 +160,6 @@ fieldset {
   border: none;
 }
 
-/* INPUTS */
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 0.75rem 0.9rem;
-  margin-top: 6px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
-}
-
-input::placeholder {
-  color: #6b7280;
-}
-
-input:focus {
-  outline: none;
-  border-color: var(--secondary);
-  box-shadow: 0 0 0 3px rgba(11, 245, 132, 0.2);
-}
-
-input[type="checkbox"] {
-  margin-right: 8px;
-  accent-color: var(--secondary);
-}
-
 /* DUGMAD */
 .dodatna-dugmad {
   background: none;
@@ -290,10 +252,6 @@ footer img:hover {
     padding: 32px;
   }
 
-  label {
-    font-size: 1rem;
-  }
-
   .btn {
     font-size: 1.05rem;
   }
@@ -323,11 +281,6 @@ footer img:hover {
   form {
     max-width: 420px;
     padding: 40px;
-  }
-
-  input[type="email"],
-  input[type="password"] {
-    font-size: 1rem;
   }
 
   .btn {

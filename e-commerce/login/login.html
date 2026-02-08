@@ -146,40 +146,34 @@
     <!-- LOGIN -->
     <form>
       <fieldset>
-        <label for="email">Email adresa:</label><br />
+        <label for="email" class="form-label">Email adresa:</label><br />
         <input
           type="email"
           placeholder="email@example.com"
           id="email"
+          class="form-control"
           required
         />
-        <br /><br />
 
-        <label for="password">Lozinka:</label><br />
+        <label for="password" class="form-label mt-4">Lozinka:</label><br />
         <input
           type="password"
           placeholder="Unesite lozinku"
           id="password"
+          class="form-control"
           required
         />
-        <br /><br />
 
-        <label for="remember-me">
-          <input type="checkbox" id="remember-me" /> Zapamti me
+        <label for="remember-me" class="form-label mt-4">
+          <input type="checkbox" id="remember-me" class="form-check-input" /> Zapamti me
         </label>
         <button type="button" class="dodatna-dugmad">
           Zaboravili ste lozinku?
         </button>
 
-        <br /><br />
+        <button type="submit" class="btn mt-4">Uloguj se</button>
 
-        <button type="submit" class="btn">Uloguj se</button>
-
-        <br /><br />
-
-        <button type="button" class="dodatna-dugmad">Kreiraj nalog</button>
-
-        <br /><br />
+        <button type="button" class="dodatna-dugmad mt-4">Kreiraj nalog</button>
       </fieldset>
     </form>
 
