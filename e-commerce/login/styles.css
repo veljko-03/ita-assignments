@@ -159,12 +159,8 @@ form {
 /* DUGMAD */
 .dodatna-dugmad {
   background: none;
-  border: none;
   color: var(--secondary);
-  font-size: 0.9rem;
   cursor: pointer;
-  padding: 0;
-  margin-left: 8px;
 }
 
 .dodatna-dugmad:hover {
@@ -174,12 +170,7 @@ form {
 .btn {
   width: 100%;
   background-color: var(--secondary);
-  color: #000;
-  border: none;
-  padding: 14px;
-  font-size: 1.2rem;
   font-weight: 600;
-  border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -191,8 +182,6 @@ form {
 
 button.dodatna-dugmad:last-of-type {
   width: 100%;
-  text-align: center;
-  margin-top: 12px;
 }
 
 /* =====================
