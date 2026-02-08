@@ -237,19 +237,11 @@ footer img:hover {
     padding: 32px;
   }
 
-  .btn {
-    font-size: 1.05rem;
-  }
-
   header {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
     padding: 9px 18px;
-  }
-
-  .primary-nav {
-    display: block;
   }
 
   .logo-title {
@@ -268,20 +260,8 @@ footer img:hover {
     padding: 40px;
   }
 
-  .btn {
-    font-size: 1rem;
-  }
-
-  .navbar {
-    padding: 14px 32px;
-  }
-
   .search input {
     width: 200px;
-  }
-
-  .primary-nav ul {
-    gap: 32px;
   }
 
   .action-link {
