@@ -43,7 +43,6 @@ label {
 /* ===========
    HEADER
 =========== */
-
 header {
   background: linear-gradient(
     135deg,
@@ -57,21 +56,7 @@ header {
   margin-bottom: 13px;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 10px 16px;
-}
-
 /* BRAND */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .brand .logo {
   width: 32px;
   height: 32px;
@@ -86,19 +71,7 @@ header {
 }
 
 /* NAVBAR */
-.primary-nav {
-  display: none;
-}
-
-.primary-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 28px;
-}
-
-.primary-nav a {
+.navbar a {
   color: #e5e7eb;
   text-decoration: none;
   font-size: 0.95rem;
@@ -107,7 +80,7 @@ header {
   transition: color 0.3s ease;
 }
 
-.primary-nav a::after {
+.navbar a::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -120,21 +93,16 @@ header {
   transform: translateX(-50%);
 }
 
-.primary-nav a:hover::after {
+.navbar a:hover::after {
   width: 100%;
 }
 
-/* ACTIONS */
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.navbar-toggler-icon {
+  filter: invert(1);
 }
 
+/* ACTIONS */
 .action-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #e5e7eb;
   text-decoration: none;
   transition:
@@ -154,9 +122,6 @@ header {
 
 /* SEARCH */
 .search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   background: rgba(255, 255, 255, 0.12);
   padding: 6px 10px;
   border-radius: 999px;
@@ -176,7 +141,6 @@ header {
   background: none;
   border: none;
   outline: none;
-  color: #ffffff;
   font-size: 0.9rem;
   width: 120px;
 }
