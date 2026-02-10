@@ -195,3 +195,37 @@ footer img:hover {
   opacity: 1;
   transform: translateY(-2px);
 }
+
+
+/* =====================
+   RESPONSIVNESS
+===================== */
+
+/* TABLET ≥ 768px */
+@media (min-width: 768px) {
+ header {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 9px 18px;
+  }
+
+  .logo-title {
+    font-size: 1.6rem;
+  }
+
+  .search input {
+    width: 160px;
+  }
+}
+
+/* DESKTOP ≥ 1024px */
+@media (min-width: 1024px) {
+  .search input {
+    width: 200px;
+  }
+
+  .action-link {
+    font-size: 0.95rem;
+  }
+}

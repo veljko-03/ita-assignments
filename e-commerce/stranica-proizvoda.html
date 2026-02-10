@@ -9,40 +9,64 @@
       type="image/png"
       href="https://cdn-icons-png.flaticon.com/512/29/29302.png"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/stranica-proizvoda.css" />
   </head>
   <body>
 
     <!-- HEADER -->
     <header>
-      <div class="navbar">
-        <!-- Brand (logo + naziv) -->
-        <div class="brand">
+      <nav class="navbar navbar-expand-md container-fluid px-3 px-lg-4">
+        <!-- Brand -->
+        <a
+          class="brand d-flex align-items-center gap-2 navbar-brand"
+          href="./index.html"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
             alt="Biblioteka logo"
             class="logo"
           />
           <span class="logo-title">Biblioteka</span>
+        </a>
+
+        <!-- Hamburger (mobile only) -->
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu"
+          aria-controls="mobileMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation (desktop) -->
+        <div
+          class="collapse navbar-collapse justify-content-center d-none d-md-flex"
+        >
+          <ul class="navbar-nav gap-4 list-unstyled">
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Knjige</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+          </ul>
         </div>
 
-        <!-- Navbar -->
-        <nav class="primary-nav">
-          <ul>
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="#">Knjige</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-
-        <!-- Akcije -->
-        <div class="actions">
-          <div class="search">
+        <!-- Actions (desktop) -->
+        <div class="actions d-none d-md-flex align-items-center gap-3">
+          <div class="search d-flex align-items-center gap-2">
             <img
               src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
               alt="Search"
-              width="18"
             />
             <input type="text" placeholder="Search" />
           </div>
@@ -51,7 +75,6 @@
             <img
               src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
               alt="Cart"
-              width="18"
             />
           </a>
 
@@ -59,12 +82,72 @@
             <img
               src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
               alt="Login"
-              width="18"
+            />
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- OFFCANVAS MOBILE MENU -->
+    <div
+      class="offcanvas offcanvas-end text-bg-dark"
+      tabindex="-1"
+      id="mobileMenu"
+    >
+      <div class="offcanvas-header">
+        <div class="brand d-flex align-items-center gap-2">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
+            class="logo"
+            alt="Logo"
+          />
+          <span class="logo-title">Biblioteka</span>
+        </div>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body d-flex flex-column gap-4">
+        <!-- Navigation (mobile) -->
+        <ul class="navbar-nav gap-3 list-unstyled">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Knjige</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+
+        <!-- Search (mobile) -->
+        <div class="search d-flex align-items-center gap-2 mt-2">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/54/54481.png"
+            alt="Search"
+          />
+          <input type="text" placeholder="Search" />
+        </div>
+
+        <!-- Actions (mobile) -->
+        <div class="d-flex gap-3 mt-auto">
+          <a href="./checkout.html" class="action-link">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
+              alt="Cart"
+            />
+          </a>
+          <a href="./login.html" class="action-link">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+              alt="Login"
             />
           </a>
         </div>
       </div>
-    </header>
+    </div>
 
     <main>
       <section class="product section">
@@ -94,7 +177,7 @@
           njih dvoje se uopšte ne znaju, žive u različitim zemljama, moćne sile
           ne prezaju ni od čega da ih drže razdvojeno.
         </p>
-        <button class="btn">Dodaj u korpu</button>
+        <a href="./checkout.html" class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6">Potvrdi kupovinu</a>
       </section>
 
       <!-- DODATNE SLIKE -->
@@ -190,41 +273,47 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
-      <div class="footer-wrap">
-        <div class="footer1">
-          <section>
-            <h4>Biblioteka</h4>
-            <ul>
-              <li><a href="#">O nama</a></li>
-              <li><a href="#">Naša misija</a></li>
-              <li><a href="#">Tim</a></li>
+    <footer class="mt-5">
+      <div class="container py-5 pb-4">
+        <!-- TOP PART -->
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <h4 class="mb-3 fs-5">Biblioteka</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#">O nama</a></li>
+              <li class="mb-2"><a href="#">Naša misija</a></li>
+              <li class="mb-2"><a href="#">Tim</a></li>
             </ul>
-          </section>
+          </div>
 
-          <section>
-            <h4>Korisnici</h4>
-            <ul>
-              <li><a href="#">Moj nalog</a></li>
-              <li><a href="#">Porudžbine</a></li>
-              <li><a href="#">Podrška</a></li>
+          <div class="col-12 col-md-6 col-lg-4">
+            <h4 class="mb-3 fs-5">Korisnici</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#">Moj nalog</a></li>
+              <li class="mb-2"><a href="#">Porudžbine</a></li>
+              <li class="mb-2"><a href="#">Podrška</a></li>
             </ul>
-          </section>
+          </div>
 
-          <section>
-            <h4>Informacije</h4>
-            <ul>
-              <li><a href="#">Uslovi korišćenja</a></li>
-              <li><a href="#">Politika privatnosti</a></li>
-              <li><a href="#">Kontakt</a></li>
+          <div class="col-12 col-md-6 col-lg-4">
+            <h4 class="mb-3 fs-5">Informacije</h4>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#">Uslovi korišćenja</a></li>
+              <li class="mb-2"><a href="#">Politika privatnosti</a></li>
+              <li class="mb-2"><a href="#">Kontakt</a></li>
             </ul>
-          </section>
+          </div>
         </div>
 
-        <div class="footer2">
-          <p>© 2026 Biblioteka. Sva prava zadržana. Napravio Veljko Spasić</p>
+        <!-- BOTTOM PART -->
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 pt-3 border-top"
+        >
+          <p class="mb-0 text-light text-center text-md-start">
+            © 2026 Biblioteka. Sva prava zadržana. Napravio Veljko Spasić
+          </p>
 
-          <div class="socials">
+          <div class="d-flex gap-3">
             <a href="#">
               <img
                 src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
@@ -241,5 +330,11 @@
         </div>
       </div>
     </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
