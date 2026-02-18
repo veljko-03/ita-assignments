@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
+    <title>O nama</title>
     <link
       rel="icon"
       type="image/png"
@@ -16,15 +16,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/login.css" />
   </head>
   <body>
-
     <!-- HEADER -->
     <header>
       <nav class="navbar navbar-expand-md container-fluid px-3 px-lg-4">
         <!-- Brand -->
-        <a class="brand d-flex align-items-center gap-2 navbar-brand" href="./index.html">
+        <a
+          class="brand d-flex align-items-center gap-2 navbar-brand"
+          href="./index.html"
+        >
           <img
             src="https://cdn-icons-png.flaticon.com/512/29/29302.png"
             alt="Biblioteka logo"
@@ -49,10 +50,14 @@
           class="collapse navbar-collapse justify-content-center d-none d-md-flex"
         >
           <ul class="navbar-nav gap-4 list-unstyled">
-            <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
             <li class="nav-item"><a class="nav-link" href="#">Knjige</a></li>
-            <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">About</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
           </ul>
         </div>
 
@@ -73,7 +78,7 @@
             />
           </a>
 
-          <a href="#" class="action-link">
+          <a href="./login.html" class="action-link">
             <img
               src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
               alt="Login"
@@ -109,10 +114,14 @@
       <div class="offcanvas-body d-flex flex-column gap-4">
         <!-- Navigation (mobile) -->
         <ul class="navbar-nav gap-3 list-unstyled">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
           <li class="nav-item"><a class="nav-link" href="#">Knjige</a></li>
-          <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
         </ul>
 
         <!-- Search (mobile) -->
@@ -132,7 +141,7 @@
               alt="Cart"
             />
           </a>
-          <a href="#" class="action-link">
+          <a href="./login.html" class="action-link">
             <img
               src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
               alt="Login"
@@ -142,45 +151,25 @@
       </div>
     </div>
 
-    <h1 class="text-center mb-4 fs-1 fw-semibold text-dark">Prijava</h1>
+    <h1 class="text-center mb-4 fs-1 fw-semibold text-dark">Kontakt</h1>
 
-    <!-- LOGIN -->
-    <form>
-      <fieldset class="border border-light-subtle rounded-4 p-4">
-        <label for="email" class="form-label">Email adresa:</label><br />
-        <input
-          type="email"
-          placeholder="email@example.com"
-          id="email"
-          class="form-control"
-          required
-        />
-
-        <label for="password" class="form-label mt-4">Lozinka:</label><br />
-        <input
-          type="password"
-          placeholder="Unesite lozinku"
-          id="password"
-          class="form-control"
-          required
-        />
-
-        <label for="remember-me" class="form-label mt-4">
-          <input type="checkbox" id="remember-me" class="form-check-input" />
-          Zapamti me
-        </label>
-        <button type="button" class="dodatna-dugmad border-0 m-2">
-          Zaboravili ste lozinku?
-        </button>
-
-        <button type="submit" class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6">Uloguj se</button>
-
-        <button type="button" class="dodatna-dugmad mt-4 border-0">Kreiraj nalog</button>
-      </fieldset>
-    </form>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10 col-sm-8 col-md-6 col-lg-5 text-center">
+          <p class="mt-5">Email: <strong>kontakt@biblioteka.com</strong></p>
+          <p>Broj telefona: <strong>+381 0 00 00 000</strong></p>
+          <p>
+            Adresa: <strong>Lorem ipsum dolor sit amet quino koi tryuo</strong>
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet quino koi tryuo Lorem ipsum dolor sit
+            amet quino koi tryuo
+          </p>
+        </div>
+      </div>
+    </div>
 
     <!-- FOOTER -->
-
     <footer class="mt-5">
       <div class="container py-5 pb-4">
         <!-- TOP PART -->
@@ -199,7 +188,7 @@
             <ul class="list-unstyled">
               <li class="mb-2"><a href="#">Moj nalog</a></li>
               <li class="mb-2"><a href="#">Porudžbine</a></li>
-              <li class="mb-2"><a href="./contact.html">Podrška</a></li>
+              <li class="mb-2"><a href="#">Podrška</a></li>
             </ul>
           </div>
 
@@ -208,7 +197,7 @@
             <ul class="list-unstyled">
               <li class="mb-2"><a href="#">Uslovi korišćenja</a></li>
               <li class="mb-2"><a href="#">Politika privatnosti</a></li>
-              <li class="mb-2"><a href="./contact.html">Kontakt</a></li>
+              <li class="mb-2"><a href="#">Kontakt</a></li>
             </ul>
           </div>
         </div>
