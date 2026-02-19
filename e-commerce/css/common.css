@@ -154,6 +154,31 @@ header {
 }
 
 /* =====================
+   FORMA
+===================== */
+form {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: var(--radius);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.paypal-logo {
+  vertical-align: middle;
+  margin: 0 6px;
+  width: 20px;
+}
+
+/* =====================
    FOOTER
 ===================== */
 footer {
@@ -216,6 +241,10 @@ footer img:hover {
 
   .search input {
     width: 160px;
+  }
+
+  form {
+    padding: 32px;
   }
 }
 
