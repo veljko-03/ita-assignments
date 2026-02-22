@@ -33,8 +33,7 @@ console.log(typeof normalized);
 // Validacija kupona
 function validateAndNotify() {
   // #promo-input
-  const inputElement = document.querySelector("#promo-input");
-  const userInput = inputElement.value;
+  let userInput = document.getElementById("promo-input").value;
 
   // Normalizuj kupon
   const normalizedInput = normalizeCoupon(userInput);
