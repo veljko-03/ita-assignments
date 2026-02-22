@@ -27,9 +27,6 @@ function normalizeCoupon(code) {
   return code.trim().toUpperCase();
 }
 
-console.log(normalized);
-console.log(typeof normalized);
-
 // Validacija kupona
 function validateAndNotify() {
   // #promo-input
@@ -42,5 +39,17 @@ function validateAndNotify() {
     alert("Kod je validan.");
   } else {
     alert("Kod nije validan.");
+  }
+}
+
+// Login
+function login() {
+  let emailInput = document.getElementById("email").value.trim();
+  let passwordInput = document.getElementById("password").value.trim();
+
+  if (emailInput === "admin" && passwordInput === "admin") {
+    console.log(true);
+  } else {
+    console.log(false);
   }
 }
