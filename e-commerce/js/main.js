@@ -24,14 +24,7 @@ console.log(typeof RAW_COUPON);
 
 // Normalizacija kupona
 function normalizeCoupon(code) {
-  // uklanjanje razmaka
-  let trimmed = code.trim();
-  
-  // pretvaranje u velika slova
-  let uppercased = trimmed.toUpperCase();
-  
-  // vraćanje modifikovanog kupona
-  return uppercased;
+  return code.trim().toUpperCase();
 }
 
 console.log(normalized);
