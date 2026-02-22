@@ -40,8 +40,8 @@ function validateAndNotify() {
   const normalizedInput = normalizeCoupon(userInput);
 
   if (normalizedInput === RAW_COUPON) {
-    alert("Uneti kod je validan.");
+    alert("Kod je validan.");
   } else {
-    alert("Uneti kod nije validan.");
+    alert("Kod nije validan.");
   }
 }
