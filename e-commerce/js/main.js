@@ -79,6 +79,6 @@ dodajNaIznos(PRODUCT4_PRICE);
 */
 
 // Ukupan iznos
-function total() {
+function openCart() {
   alert("Ukupan iznos je: " + iznos + " " + CURRENCY);
 }
