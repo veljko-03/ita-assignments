@@ -36,3 +36,19 @@ function normalizeCoupon(code) {
 
 console.log(normalized);
 console.log(typeof normalized);
+
+// Validacija kupona
+function validateAndNotify() {
+  // #promo-input
+  const inputElement = document.querySelector("#promo-input");
+  const userInput = inputElement.value;
+
+  // Normalizuj kupon
+  const normalizedInput = normalizeCoupon(userInput);
+
+  if (normalizedInput === RAW_COUPON) {
+    alert("Uneti kod je validan.");
+  } else {
+    alert("Uneti kod nije validan.");
+  }
+}
