@@ -48,14 +48,28 @@ function validateAndNotify() {
 }
 
 // Login
-function login() {
-  let emailInput = document.getElementById("email").value.trim();
-  let passwordInput = document.getElementById("password").value.trim();
+function login(email, password) {
+  // Ako parametri nisu prosleđeni, uzmi ih iz HTML-a
+  if (email === undefined && password === undefined) {
+    email = document.getElementById("email").value.trim();
+    password = document.getElementById("password").value.trim();
+  }
 
-  if (emailInput === "admin" && passwordInput === "admin") {
-    console.log(true);
+  if (email === "admin" && password === "admin") {
+    return true;
   } else {
-    console.log(false);
+    return false;
+  }
+}
+
+// Prikaz login rezultata
+function handleLogin() {
+  const rezultat = login();
+
+  if (rezultat) {
+    alert("Uspešno ste se ulogovali.");
+  } else {
+    alert("Pogrešan email ili lozinka.");
   }
 }
 
