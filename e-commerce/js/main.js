@@ -80,17 +80,13 @@ function dodajNaIznos(cena) {
 }
 
 // Demonstracija rada
-/*
-Ovo sam stavio kao komentar jer u suprotnom izračunaće ukupan iznos čim se stranica otvori,
-što znači da svakim klikom na dugme 'Dodaj u korpu', ukupna cena će se računati počevši od 68.
-Ovako, ukupna cena (klikom na dugme) se računa od nule. 
-*/
-/*
 dodajNaIznos(PRODUCT1_PRICE);
 dodajNaIznos(PRODUCT2_PRICE);
 dodajNaIznos(PRODUCT3_PRICE);
 dodajNaIznos(PRODUCT4_PRICE);
-*/
+
+// Reset iznosa
+iznos = 0;
 
 // Ukupan iznos
 function openCart() {
