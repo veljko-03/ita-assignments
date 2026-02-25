@@ -19,6 +19,59 @@ const USD_PER_EUR = 1.16;
 
 const VALID_COUPONS = ["SAVE10", "SAVE15", "FREESHIP"];
 
+const allProducts = [
+  {
+    name: "Knjiga 1",
+    price: 24,
+    qty: 7
+  },
+  {
+    name: "Knjiga 2",
+    price: 20,
+    qty: 5
+  },
+  {
+    name: "Knjiga 3",
+    price: 14,
+    qty: 9
+  },
+  {
+    name: "Knjiga 4",
+    price: 10,
+    qty: 4
+  },
+  {
+    name: "Knjiga 5",
+    price: 18,
+    qty: 6
+  },
+  {
+    name: "Knjiga 6",
+    price: 22,
+    qty: 3
+  },
+  {
+    name: "Knjiga 7",
+    price: 12,
+    qty: 7
+  },
+  {
+    name: "Knjiga 8",
+    price: 10,
+    qty: 10
+  },
+  {
+    name: "Knjiga 9",
+    price: 7,
+    qty: 3
+  },
+  {
+    name: "Knjiga 10",
+    price: 15,
+    qty: 10
+  }
+];
+
 // Type output
 console.log(typeof PRODUCT1_NAME);
 console.log(typeof PRODUCT1_PRICE);
@@ -104,3 +157,16 @@ iznos = 0;
 function openCart() {
   alert("Ukupan iznos je: " + iznos + " " + CURRENCY);
 }
+
+// Ukupna vrednost lagera
+function calculateTotalInventoryValue() {
+  let totalValue = 0;
+
+  for (let product of allProducts) {
+    totalValue += product.price * product.qty;
+  }
+
+  console.log("Ukupna vrednost lagera: " + totalValue + " USD");
+}
+
+calculateTotalInventoryValue();
