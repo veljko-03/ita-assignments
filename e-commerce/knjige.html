@@ -53,7 +53,9 @@
             <li class="nav-item">
               <a class="nav-link" href="./index.html">Home</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="./knjige.html">Knjige</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="./knjige.html">Knjige</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="./about.html">About</a>
             </li>
@@ -73,7 +75,11 @@
             <input type="text" placeholder="Search" />
           </div>
 
-          <a href="./checkout.html" class="action-link" onClick="openCart(); return false;">
+          <a
+            href="./checkout.html"
+            class="action-link"
+            onClick="openCart(); return false;"
+          >
             <img
               src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
               alt="Cart"
@@ -119,7 +125,9 @@
           <li class="nav-item">
             <a class="nav-link" href="./index.html">Home</a>
           </li>
-          <li class="nav-item"><a class="nav-link" href="./knjige.html">Knjige</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="./knjige.html">Knjige</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="./about.html">About</a>
           </li>
@@ -139,7 +147,11 @@
 
         <!-- Actions (mobile) -->
         <div class="d-flex gap-3 mt-auto">
-          <a href="./checkout.html" class="action-link" onClick="openCart(); return false;">
+          <a
+            href="./checkout.html"
+            class="action-link"
+            onClick="openCart(); return false;"
+          >
             <img
               src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png"
               alt="Cart"
@@ -158,103 +170,257 @@
     <h1 class="text-center mb-4 fs-1 fw-semibold text-dark">Knjige</h1>
 
     <div class="container mb-5">
-      <div class="row g-4">
-        <!-- Card 1 -->
-        <div class="col-12 col-sm-6 col-lg-4">
+      <div class="row g-3">
+        <!-- PROIZVODI -->
+
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="card h-100 shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200"
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
               class="card-img-top"
               alt="Book image"
             />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem Ipsum</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <p><strong>Cena:</strong> $24</p>
+            <div class="card-body d-flex flex-column p-3">
+              <h6 class="card-title">Knjiga 1</h6>
+              <p class="mb-1"><strong>Cena:</strong> $24</p>
+              <p class="text-muted small">Na lageru: 7</p>
+              <button
+                onClick="dodajNaIznos(PRODUCT1_PRICE)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
               <a
                 href="./stranica-proizvoda.html"
-                class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
               >
-                Pogledaj knjigu
-              </a>
-              <button onClick="dodajNaIznos(PRODUCT1_PRICE)" class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="col-12 col-sm-6 col-lg-4">
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="card h-100 shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200"
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
               class="card-img-top"
               alt="Book image"
             />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem Ipsum</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <p><strong>Cena:</strong> $20</p>
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 2</h6>
+              <p class="mb-1"><strong>Cena:</strong> $20</p>
+              <p class="text-muted small">Na lageru: 5</p>
+              <button
+                onClick="dodajNaIznos(PRODUCT2_PRICE)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
               <a
                 href="./stranica-proizvoda.html"
-                class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
               >
-                Pogledaj knjigu
-              </a>
-              <button onClick="dodajNaIznos(PRODUCT2_PRICE)" class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="col-12 col-sm-6 col-lg-4">
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="card h-100 shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200"
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
               class="card-img-top"
-              alt="Book image"
             />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem Ipsum</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <p><strong>Cena:</strong> $14</p>
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 3</h6>
+              <p class="mb-1"><strong>Cena:</strong> $14</p>
+              <p class="text-muted small">Na lageru: 9</p>
+              <button
+                onClick="dodajNaIznos(PRODUCT3_PRICE)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
               <a
                 href="./stranica-proizvoda.html"
-                class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
               >
-                Pogledaj knjigu
-              </a>
-              <button onClick="dodajNaIznos(PRODUCT3_PRICE)" class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6">Dodaj u korpu</button>
             </div>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="col-12 col-sm-6 col-lg-4">
+        <div class="col-6 col-md-4 col-lg-3">
           <div class="card h-100 shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200"
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
               class="card-img-top"
-              alt="Book image"
             />
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title">Lorem Ipsum</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 4</h6>
+              <p class="mb-1"><strong>Cena:</strong> $10</p>
+              <p class="text-muted small">Na lageru: 4</p>
+              <button
+                onClick="dodajNaIznos(PRODUCT4_PRICE)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
+              <a
+                href="./stranica-proizvoda.html"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+              class="card-img-top"
+            />
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 5</h6>
+              <p><strong>Cena:</strong> $18</p>
+              <p class="text-muted small">Na lageru: 6</p>
+              <button
+                onClick="dodajNaIznos(18)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
+              <a
+                href="./stranica-proizvoda.html"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+              class="card-img-top"
+            />
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 6</h6>
+              <p><strong>Cena:</strong> $22</p>
+              <p class="text-muted small">Na lageru: 3</p>
+              <button
+                onClick="dodajNaIznos(22)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
+              <a
+                href="./stranica-proizvoda.html"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+              class="card-img-top"
+            />
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 7</h6>
+              <p><strong>Cena:</strong> $12</p>
+              <p class="text-muted small">Na lageru: 7</p>
+              <button
+                onClick="dodajNaIznos(12)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
+              <a
+                href="./stranica-proizvoda.html"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+              class="card-img-top"
+            />
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 8</h6>
               <p><strong>Cena:</strong> $10</p>
+              <p class="text-muted small">Na lageru: 10</p>
+              <button
+                onClick="dodajNaIznos(10)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
               <a
                 href="./stranica-proizvoda.html"
-                class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
               >
-                Pogledaj knjigu
-              </a>
-              <button onClick="dodajNaIznos(PRODUCT4_PRICE)" class="btn mt-4 text-dark border-0 rounded-5 p-3 fs-6">Dodaj u korpu</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+              class="card-img-top"
+            />
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 9</h6>
+              <p><strong>Cena:</strong> $7</p>
+              <p class="text-muted small">Na lageru: 3</p>
+              <button
+                onClick="dodajNaIznos(7)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
+              <a
+                href="./stranica-proizvoda.html"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=800"
+              class="card-img-top"
+            />
+            <div class="card-body d-flex flex-column p-3">
+              <h6>Knjiga 10</h6>
+              <p><strong>Cena:</strong> $15</p>
+              <p class="text-muted small">Na lageru: 10</p>
+              <button
+                onClick="dodajNaIznos(15)"
+                class="btn btn-sm mt-auto text-dark border-0 rounded-4"
+              >
+                Dodaj u korpu
+              </button>
+              <a
+                href="./stranica-proizvoda.html"
+                class="btn btn-sm mt-2 text-dark border-0 rounded-5"
+                >Pogledaj knjigu</a
+              >
             </div>
           </div>
         </div>
