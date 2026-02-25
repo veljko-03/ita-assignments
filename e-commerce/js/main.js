@@ -176,3 +176,16 @@ const lowStock = allProducts.filter(product => product.qty < 10);
 
 console.log("Proizvodi sa lagerom manjim od 10:");
 console.log(lowStock);
+
+// Pretraga
+function findProductByName(list, searchName) {
+  const lowerSearch = searchName.toLowerCase();
+  const found = list.find(product => product.name.toLowerCase() === lowerSearch);
+
+  return found || null;
+}
+
+console.log(findProductByName(allProducts, "Knjiga 1"));
+console.log(findProductByName(allProducts, "knjiga 5"));
+console.log(findProductByName(allProducts, "KNJIGA 10"));
+console.log(findProductByName(allProducts, "NePostoji"));
