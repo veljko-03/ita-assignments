@@ -25,7 +25,6 @@ console.log(typeof PRODUCT1_PRICE);
 console.log(typeof PRODUCT1_QTY);
 console.log(typeof VAT_RATE);
 console.log(typeof CURRENCY);
-console.log(typeof RAW_COUPON);
 
 // Normalizacija kupona
 function normalizeCoupon(code) {
