@@ -170,3 +170,9 @@ function calculateTotalInventoryValue() {
 }
 
 calculateTotalInventoryValue();
+
+// Niz proizvoda sa qty < 10
+const lowStock = allProducts.filter(product => product.qty < 10);
+
+console.log("Proizvodi sa lagerom manjim od 10:");
+console.log(lowStock);
