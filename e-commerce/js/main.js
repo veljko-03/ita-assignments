@@ -17,7 +17,7 @@ const VAT_RATE = 0.2;
 const CURRENCY = "USD";
 const USD_PER_EUR = 1.16;
 
-const RAW_COUPON = "SAVE10";
+const VALID_COUPONS = ["SAVE10", "SAVE15", "FREESHIP"];
 
 // Type output
 console.log(typeof PRODUCT1_NAME);
@@ -32,16 +32,28 @@ function normalizeCoupon(code) {
   return code.trim().toUpperCase();
 }
 
-// Validacija kupona
-function validateAndNotify() {
-  // #promo-input
-  let userInput = document.getElementById("promo-input").value;
+// Da li je kupon validan
+function isValidCoupon(code) {
+  return VALID_COUPONS.includes(code);
+}
 
-  // Normalizuj kupon
+// Validacija kupona i obaveštenje
+function validateAndNotify() {
+  let userInput = document.getElementById("promo-input").value;
   const normalizedInput = normalizeCoupon(userInput);
 
-  if (normalizedInput === RAW_COUPON) {
-    alert("Kod je validan.");
+  if (isValidCoupon(normalizedInput)) {
+
+    if (normalizedInput === "SAVE10") {
+      alert("Vaš kupon donosi 10% popusta.");
+    } 
+    else if (normalizedInput === "SAVE15") {
+      alert("Vaš kupon donosi 15% popusta.");
+    } 
+    else if (normalizedInput === "FREESHIP") {
+      alert("Vaš kupon donosi besplatnu dostavu.");
+    }
+
   } else {
     alert("Kod nije validan.");
   }
