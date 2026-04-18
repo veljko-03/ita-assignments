@@ -1,6 +1,6 @@
-// =====================
-// OBJEKTI
-// =====================
+/* ===============
+      OBJEKTI
+================== */
 
 // Proizvodi
 const product1 = {
@@ -43,9 +43,9 @@ const cart = {
   totalPrice: 0
 };
 
-// =====================
-// FUNKCIJE
-// =====================
+/* ===============
+      FUNKCIJE
+================== */
 
 // Provera stanja
 const isInStock = (product, qty) => {
@@ -130,41 +130,77 @@ const getProductsByCategory = function(products, category) {
   });
 };
 
-// =====================
-// TESTS
-// =====================
+/* ===============
+      TESTS
+================== */
 
-// -- Ispis objekata
+// == Ispis ==
 console.log("Proizvodi:", products);
 console.log("Korisnik:", user);
 console.log("Korpa:", cart);
 
-// -- Test isInStock
+// == TEST isInStock ==
 console.log("=== Test isInStock ===");
 
 console.log("Knjiga 1 (traženo 3):", isInStock(product1, 3)); // true
 console.log("Knjiga 2 (traženo 5):", isInStock(product2, 5)); // true
 console.log("Knjiga 3 (traženo 10):", isInStock(product3, 10)); // false
 console.log("Knjiga 1 (traženo 0):", isInStock(product1, 0)); // true
+console.log(isInStock(product1, -5)); // edge case
 
-// -- Test addToCart
+// == TEST addToCart ==
 console.log("=== Test addToCart ===");
 
-// prvo dodavanje
+// reset stanja
+cart.items = [];
+cart.totalPrice = 0;
+
+product1.quantity = 7;
+product2.quantity = 5;
+product3.quantity = 9;
+
+// pre i posle dodavanja
+console.log("Pre dodavanja:");
+console.log("Cart:", cart);
+console.log("Product1:", product1);
+
 addToCart(cart, product1, 2);
 
-// dodavanje istog proizvoda ponovo
-addToCart(cart, product1, 3);
+console.log("Posle dodavanja:");
+console.log("Cart:", cart);
+console.log("Total:", cart.totalPrice);
+console.log("Product1:", product1);
+
+// dodavanje istog proizvoda
+addToCart(cart, product1, 1);
+
+console.log("POSLE dodavanja ISTOG proizvoda:");
+console.log("Cart:", cart);
+console.log("Total:", cart.totalPrice);
 
 // dodavanje drugog proizvoda
 addToCart(cart, product2, 1);
 
-// pokušaj dodavanja više nego što ima
-addToCart(cart, product2, 10);
+console.log("POSLE product2:");
+console.log("Cart:", cart);
+console.log("Total:", cart.totalPrice);
 
-addToCart(cart, product3, 0);
+// dodavanje više nego što ima
+console.log("Previše količine:");
+addToCart(cart, product2, 100);
 
-// -- Test calculateTotal
+console.log("POSLE dodavanja više nego što ima:");
+console.log("Cart:", cart);
+console.log("Total:", cart.totalPrice);
+
+// edge case
+addToCart(cart, product1, 0);
+
+console.log("Dodavanje količine 0:");
+console.log("Cart:", cart);
+console.log("Total:", cart.totalPrice);
+
+// == TEST calculateTotal ==
 console.log("=== Test calculateTotal ===");
 
 // prazna korpa
@@ -177,7 +213,7 @@ addToCart(cart, product2, 1);
 
 console.log("Izračunat ukupan iznos:", calculateTotal(cart));
 
-// -- Test removeFromCart
+// == TEST removeFromCart ==
 console.log("=== Test removeFromCart ===");
 
 // prvo dodavanje
@@ -188,7 +224,6 @@ console.log("Pre uklanjanja:", cart);
 
 // uklanjanje postojećeg proizvoda
 removeFromCart(cart, 1);
-
 console.log("Posle uklanjanja:", cart);
 
 // pokušaj uklanjanja nepostojećeg proizvoda
@@ -199,28 +234,16 @@ console.log("Stanje proizvoda nakon vraćanja:");
 console.log(product1);
 console.log(product2);
 
-// -- Test getCheapProducts
+// == TEST getCheapProducts ==
 console.log("=== Test getCheapProducts ===");
 
-// proizvodi jeftiniji od 21
-console.log("Proizvodi jeftiniji od 21:");
-console.log(getCheapProducts(products, 21));
+console.log("Jeftini (<21):", getCheapProducts(products, 21));
+console.log("Jeftini (<15):", getCheapProducts(products, 15));
 
-// proizvodi jeftiniji od 15
-console.log("Proizvodi jeftiniji od 15:");
-console.log(getCheapProducts(products, 15));
-
-// -- Test getProductsByCategory
+// == TEST getProductsByCategory ==
 console.log("=== Test getProductsByCategory ===");
 
-// postojeća kategorija
-console.log("Kategorija FANTASTIKA:")
-console.log(getProductsByCategory(products, "fantastika"));
-
-// druga kategorija
-console.log("Kategorija TRILER:")
-console.log(getProductsByCategory(products, "triler"));
-
-// nepostojeća kategorija
-console.log("Nepostojeća kategorija:")
-console.log(getProductsByCategory(products, "nauka"));
+console.log("fantastika:", getProductsByCategory(products, "fantastika"));
+console.log("triler:", getProductsByCategory(products, "triler"));
+console.log("nepostojeća:", getProductsByCategory(products, "nauka"));
+console.log("edge case:", getProductsByCategory(products, ""));
