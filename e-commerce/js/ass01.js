@@ -27,6 +27,8 @@ const product3 = {
   category: "romansa"
 };
 
+const products = [product1, product2, product3];
+
 // Korisnik
 const user = {
   username: "janedoe",
