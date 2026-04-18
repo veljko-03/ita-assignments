@@ -94,16 +94,41 @@ const calculateTotal = (cart) => {
   return total;
 }
 
+// Izbaci iz korpe
+const removeFromCart = (cart, productId) => {
+  const index = cart.items.findIndex(item => item.id === productId);
+
+  if (index === -1) {
+    console.log("Proizvod ne postoji u korpi.");
+    return;
+  }
+
+  const removedItem = cart.items[index];
+  const originalProduct = products.find(p => p.id === productId);
+
+  if (originalProduct) {
+    originalProduct.quantity += removedItem.quantity;
+  }
+
+  // ukloni iz korpe
+  cart.items.splice(index, 1);
+
+  cart.totalPrice = calculateTotal(cart);
+
+  console.log(`Uklonjen proizvod: ${removedItem.name}`);
+}
+
+
 // =====================
 // TESTS
 // =====================
 
-// Ispis objekata
+// -- Ispis objekata
 console.log("Proizvodi:", products);
 console.log("Korisnik:", user);
 console.log("Korpa:", cart);
 
-// Test isInStock
+// -- Test isInStock
 console.log("=== Test isInStock ===");
 
 console.log("Knjiga 1 (traženo 3):", isInStock(product1, 3)); // true
@@ -111,7 +136,7 @@ console.log("Knjiga 2 (traženo 5):", isInStock(product2, 5)); // true
 console.log("Knjiga 3 (traženo 10):", isInStock(product3, 10)); // false
 console.log("Knjiga 1 (traženo 0):", isInStock(product1, 0)); // true
 
-// Test addToCart
+// -- Test addToCart
 console.log("=== Test addToCart ===");
 
 // prvo dodavanje
@@ -128,7 +153,7 @@ addToCart(cart, product2, 10);
 
 addToCart(cart, product3, 0);
 
-// Test calculateTotal
+// -- Test calculateTotal
 console.log("=== Test calculateTotal ===");
 
 // prazna korpa
@@ -140,3 +165,25 @@ addToCart(cart, product1, 2);
 addToCart(cart, product2, 1);
 
 console.log("Izračunat ukupan iznos:", calculateTotal(cart));
+
+// -- Test removeFromCart
+console.log("=== Test removeFromCart ===");
+
+// prvo dodavanje
+addToCart(cart, product1, 2);
+addToCart(cart, product2, 1);
+
+console.log("Pre uklanjanja:", cart);
+
+// uklanjanje postojećeg proizvoda
+removeFromCart(cart, 1);
+
+console.log("Posle uklanjanja:", cart);
+
+// pokušaj uklanjanja nepostojećeg proizvoda
+removeFromCart(cart, 999);
+
+// provera da li je vraćena količina
+console.log("Stanje proizvoda nakon vraćanja:");
+console.log(product1);
+console.log(product2);
