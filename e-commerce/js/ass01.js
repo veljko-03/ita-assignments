@@ -123,6 +123,13 @@ const getCheapProducts = (products, limit) => {
   return products.filter(product => product.price < limit);
 };
 
+// Pretraga po kategoriji
+const getProductsByCategory = function(products, category) {
+  return products.filter(function(p) {
+    return p.category === category;
+  });
+};
+
 // =====================
 // TESTS
 // =====================
@@ -202,3 +209,18 @@ console.log(getCheapProducts(products, 21));
 // proizvodi jeftiniji od 15
 console.log("Proizvodi jeftiniji od 15:");
 console.log(getCheapProducts(products, 15));
+
+// -- Test getProductsByCategory
+console.log("=== Test getProductsByCategory ===");
+
+// postojeća kategorija
+console.log("Kategorija FANTASTIKA:")
+console.log(getProductsByCategory(products, "fantastika"));
+
+// druga kategorija
+console.log("Kategorija TRILER:")
+console.log(getProductsByCategory(products, "triler"));
+
+// nepostojeća kategorija
+console.log("Nepostojeća kategorija:")
+console.log(getProductsByCategory(products, "nauka"));
