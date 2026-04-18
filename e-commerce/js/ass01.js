@@ -78,10 +78,20 @@ const addToCart = (cart, product, qty) => {
   // smanji stanje
   product.quantity -= qty;
 
-  // ažuriraj ukupnu cenu
-  cart.totalPrice += product.price * qty;
+  cart.totalPrice = calculateTotal(cart);
 
   console.log(`Dodat proizvod: ${product.name} (količina: ${qty})`);
+}
+
+// Ukupan iznos korpe
+const calculateTotal = (cart) => {
+  let total = 0;
+
+  for (let item of cart.items) {
+    total += item.price * item.quantity;
+  }
+
+  return total;
 }
 
 // =====================
@@ -117,3 +127,16 @@ addToCart(cart, product2, 1);
 addToCart(cart, product2, 10);
 
 addToCart(cart, product3, 0);
+
+// Test calculateTotal
+console.log("=== Test calculateTotal ===");
+
+// prazna korpa
+const emptyCart = { items: [], totalPrice: 0 };
+console.log("Prazna korpa:", calculateTotal(emptyCart)); // 0
+
+// nakon dodavanja
+addToCart(cart, product1, 2);
+addToCart(cart, product2, 1);
+
+console.log("Izračunat ukupan iznos:", calculateTotal(cart));
