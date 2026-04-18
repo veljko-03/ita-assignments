@@ -52,6 +52,37 @@ const isInStock = (product, qty) => {
   return product.quantity >= qty;
 }
 
+// Dodaj u korpu
+const addToCart = (cart, product, qty) => {
+  // provera da li ima dovoljno na stanju
+  if (!isInStock(product, qty)) {
+    console.log(`Nema dovoljno proizvoda: ${product.name}`);
+    return;
+  }
+
+  // da li već postoji u korpi
+  const existingItem = cart.items.find(item => item.id === product.id);
+
+  // ako postoji povećaj količinu, ako ne dodaj
+  if (existingItem) {
+    existingItem.quantity += qty;
+  } else {
+    cart.items.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: qty
+    });
+  }
+
+  // smanji stanje
+  product.quantity -= qty;
+
+  // ažuriraj ukupnu cenu
+  cart.totalPrice += product.price * qty;
+
+  console.log(`Dodat proizvod: ${product.name} (količina: ${qty})`);
+}
 
 // =====================
 // TESTS
@@ -69,3 +100,20 @@ console.log("Knjiga 1 (traženo 3):", isInStock(product1, 3)); // true
 console.log("Knjiga 2 (traženo 5):", isInStock(product2, 5)); // true
 console.log("Knjiga 3 (traženo 10):", isInStock(product3, 10)); // false
 console.log("Knjiga 1 (traženo 0):", isInStock(product1, 0)); // true
+
+// Test addToCart
+console.log("=== Test addToCart ===");
+
+// prvo dodavanje
+addToCart(cart, product1, 2);
+
+// dodavanje istog proizvoda ponovo
+addToCart(cart, product1, 3);
+
+// dodavanje drugog proizvoda
+addToCart(cart, product2, 1);
+
+// pokušaj dodavanja više nego što ima
+addToCart(cart, product2, 10);
+
+addToCart(cart, product3, 0);
