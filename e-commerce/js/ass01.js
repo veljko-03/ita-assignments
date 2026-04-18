@@ -8,7 +8,7 @@ const product1 = {
   name: "Knjiga 1",
   price: 24,
   quantity: 7,
-  category: "fantastika"
+  category: "fantastika",
 };
 
 const product2 = {
@@ -16,7 +16,7 @@ const product2 = {
   name: "Knjiga 2",
   price: 20,
   quantity: 5,
-  category: "triler"
+  category: "triler",
 };
 
 const product3 = {
@@ -24,7 +24,7 @@ const product3 = {
   name: "Knjiga 3",
   price: 14,
   quantity: 9,
-  category: "romansa"
+  category: "romansa",
 };
 
 const products = [product1, product2, product3];
@@ -33,14 +33,13 @@ const products = [product1, product2, product3];
 const user = {
   username: "janedoe",
   email: "janedoe@gmail.com",
-  isLoggedIn: false
+  isLoggedIn: false,
 };
-
 
 // Korpa
 const cart = {
   items: [],
-  totalPrice: 0
+  totalPrice: 0,
 };
 
 /* ===============
@@ -50,7 +49,7 @@ const cart = {
 // Provera stanja
 const isInStock = (product, qty) => {
   return product.quantity >= qty;
-}
+};
 
 // Dodaj u korpu
 const addToCart = (cart, product, qty) => {
@@ -61,7 +60,7 @@ const addToCart = (cart, product, qty) => {
   }
 
   // da li već postoji u korpi
-  const existingItem = cart.items.find(item => item.id === product.id);
+  const existingItem = cart.items.find((item) => item.id === product.id);
 
   // ako postoji povećaj količinu, ako ne dodaj
   if (existingItem) {
@@ -71,7 +70,7 @@ const addToCart = (cart, product, qty) => {
       id: product.id,
       name: product.name,
       price: product.price,
-      quantity: qty
+      quantity: qty,
     });
   }
 
@@ -81,7 +80,7 @@ const addToCart = (cart, product, qty) => {
   cart.totalPrice = calculateTotal(cart);
 
   console.log(`Dodat proizvod: ${product.name} (količina: ${qty})`);
-}
+};
 
 // Ukupan iznos korpe
 const calculateTotal = (cart) => {
@@ -92,11 +91,11 @@ const calculateTotal = (cart) => {
   }
 
   return total;
-}
+};
 
 // Izbaci iz korpe
 const removeFromCart = (cart, productId) => {
-  const index = cart.items.findIndex(item => item.id === productId);
+  const index = cart.items.findIndex((item) => item.id === productId);
 
   if (index === -1) {
     console.log("Proizvod ne postoji u korpi.");
@@ -104,7 +103,7 @@ const removeFromCart = (cart, productId) => {
   }
 
   const removedItem = cart.items[index];
-  const originalProduct = products.find(p => p.id === productId);
+  const originalProduct = products.find((p) => p.id === productId);
 
   if (originalProduct) {
     originalProduct.quantity += removedItem.quantity;
@@ -116,16 +115,16 @@ const removeFromCart = (cart, productId) => {
   cart.totalPrice = calculateTotal(cart);
 
   console.log(`Uklonjen proizvod: ${removedItem.name}`);
-}
+};
 
 // Jeftini proizvodi
 const getCheapProducts = (products, limit) => {
-  return products.filter(product => product.price < limit);
+  return products.filter((product) => product.price < limit);
 };
 
 // Pretraga po kategoriji
-const getProductsByCategory = function(products, category) {
-  return products.filter(function(p) {
+const getProductsByCategory = function (products, category) {
+  return products.filter(function (p) {
     return p.category === category;
   });
 };
