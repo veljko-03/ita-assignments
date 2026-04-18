@@ -43,11 +43,29 @@ const cart = {
   totalPrice: 0
 };
 
+// =====================
+// FUNKCIJE
+// =====================
+
+// Provera stanja
+const isInStock = (product, qty) => {
+  return product.quantity >= qty;
+}
+
 
 // =====================
-// TEST ISPIS
+// TESTS
 // =====================
 
+// Ispis objekata
 console.log("Proizvodi:", products);
 console.log("Korisnik:", user);
 console.log("Korpa:", cart);
+
+// Test isInStock
+console.log("=== Test isInStock ===");
+
+console.log("Knjiga 1 (traženo 3):", isInStock(product1, 3)); // true
+console.log("Knjiga 2 (traženo 5):", isInStock(product2, 5)); // true
+console.log("Knjiga 3 (traženo 10):", isInStock(product3, 10)); // false
+console.log("Knjiga 1 (traženo 0):", isInStock(product1, 0)); // true
