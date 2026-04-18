@@ -118,6 +118,10 @@ const removeFromCart = (cart, productId) => {
   console.log(`Uklonjen proizvod: ${removedItem.name}`);
 }
 
+// Jeftini proizvodi
+const getCheapProducts = (products, limit) => {
+  return products.filter(product => product.price < limit);
+};
 
 // =====================
 // TESTS
@@ -187,3 +191,14 @@ removeFromCart(cart, 999);
 console.log("Stanje proizvoda nakon vraćanja:");
 console.log(product1);
 console.log(product2);
+
+// -- Test getCheapProducts
+console.log("=== Test getCheapProducts ===");
+
+// proizvodi jeftiniji od 21
+console.log("Proizvodi jeftiniji od 21:");
+console.log(getCheapProducts(products, 21));
+
+// proizvodi jeftiniji od 15
+console.log("Proizvodi jeftiniji od 15:");
+console.log(getCheapProducts(products, 15));
