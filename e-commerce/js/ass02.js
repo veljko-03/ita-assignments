@@ -68,6 +68,45 @@ class User {
     this.#isLoggedIn = false;
     console.log(`${this.username} je odjavljen.`);
   }
+
+  getDiscount() {
+    return 0;
+  }
+}
+
+class Admin extends User {
+  constructor(username, email, isLoggedIn, role) {
+    super(username, email, isLoggedIn);
+
+    this.role = role;
+  }
+
+  addNewProduct(productList, newProduct) {
+    // provera da li je novi proizvod instanca klase Product
+    if (!(newProduct instanceof Product)) {
+      console.log("Objekat nije instanca klase Product.");
+      return;
+    }
+
+    // provera da li proizvod već postoji
+    const exists = productList.find(
+      product => product.id === newProduct.id
+    );
+
+    if (exists) {
+      console.log("Proizvod već postoji u listi.");
+      return;
+    }
+
+    // dodavanje proizvoda
+    productList.push(newProduct);
+
+    console.log(`Dodat novi proizvod: ${newProduct.name}`);
+  }
+
+  getDiscount() {
+    return 0.1;
+  }
 }
 
 class Cart {
@@ -114,37 +153,6 @@ class Cart {
     for (let item of this.items) {
       this.totalPrice += item.price * item.quantity;
     }
-  }
-}
-
-class Admin extends User {
-  constructor(username, email, isLoggedIn, role) {
-    super(username, email, isLoggedIn);
-
-    this.role = role;
-  }
-
-  addNewProduct(productList, newProduct) {
-    // provera da li je novi proizvod instanca klase Product
-    if (!(newProduct instanceof Product)) {
-      console.log("Objekat nije instanca klase Product.");
-      return;
-    }
-
-    // provera da li proizvod već postoji
-    const exists = productList.find(
-      product => product.id === newProduct.id
-    );
-
-    if (exists) {
-      console.log("Proizvod već postoji u listi.");
-      return;
-    }
-
-    // dodavanje proizvoda
-    productList.push(newProduct);
-
-    console.log(`Dodat novi proizvod: ${newProduct.name}`);
   }
 }
 
@@ -267,3 +275,16 @@ admin.addNewProduct(products, {
   id: 5,
   name: "Lažni proizvod"
 });
+
+// == TEST getDiscount ==
+console.log("=== DISCOUNT TEST ===");
+
+console.log(
+  "User discount:",
+  user.getDiscount()
+);
+
+console.log(
+  "Admin discount:",
+  admin.getDiscount()
+);
