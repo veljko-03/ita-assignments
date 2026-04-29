@@ -44,10 +44,29 @@ class Product {
 }
 
 class User {
+  #isLoggedIn;
+
   constructor(username, email, isLoggedIn) {
     this.username = username;
     this.email = email;
-    this.isLoggedIn = isLoggedIn;
+    this.#isLoggedIn = isLoggedIn;
+  }
+
+  // getter
+  get isLoggedIn() {
+    return this.#isLoggedIn;
+  }
+
+  // prijava
+  login() {
+    this.#isLoggedIn = true;
+    console.log(`${this.username} je prijavljen.`);
+  }
+
+  // odjava
+  logout() {
+    this.#isLoggedIn = false;
+    console.log(`${this.username} je odjavljen.`);
   }
 }
 
@@ -93,6 +112,8 @@ console.log("=== CART ===");
 console.log(cart);
 
 // količina proizvoda
+console.log("=== KOLIČINA ===");
+
 console.log("Inicijalna količina: ", product1.quantity)
 
 product1.decreaseStock(3);
@@ -100,3 +121,14 @@ console.log("Količina -3: ", product1.quantity)
 
 product1.increaseStock(2);
 console.log("Količina +2: ", product1.quantity)
+
+// prijava i odjava
+console.log("=== LOGIN TEST ===");
+
+console.log("Početni status:", user.isLoggedIn);
+
+user.logout();
+console.log("Posle logout:", user.isLoggedIn);
+
+user.login();
+console.log("Posle login:", user.isLoggedIn);
