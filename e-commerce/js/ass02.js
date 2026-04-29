@@ -89,9 +89,7 @@ class Admin extends User {
     }
 
     // provera da li proizvod već postoji
-    const exists = productList.find(
-      product => product.id === newProduct.id
-    );
+    const exists = productList.find((product) => product.id === newProduct.id);
 
     if (exists) {
       console.log("Proizvod već postoji u listi.");
@@ -123,9 +121,7 @@ class Cart {
     }
 
     // da li već postoji u korpi
-    const existingItem = this.items.find(
-      item => item.id === product.id
-    );
+    const existingItem = this.items.find((item) => item.id === product.id);
 
     if (existingItem) {
       existingItem.quantity += qty;
@@ -145,6 +141,38 @@ class Cart {
     this.calculateTotal();
 
     console.log(`Dodat proizvod: ${product.name}`);
+  }
+
+  removeFromCart(productId, products) {
+    // pronađi proizvod u korpi
+    const itemIndex = this.items.findIndex((item) => item.id === productId);
+
+    // ako ne postoji
+    if (itemIndex === -1) {
+      console.log("Proizvod ne postoji u korpi.");
+      return;
+    }
+
+    // sačuvaj proizvod iz korpe
+    const removedItem = this.items[itemIndex];
+
+    // pronađi originalni proizvod
+    const originalProduct = products.find(
+      (product) => product.id === productId,
+    );
+
+    // vrati količinu na stanje
+    if (originalProduct) {
+      originalProduct.increaseStock(removedItem.quantity);
+    }
+
+    // ukloni iz korpe
+    this.items.splice(itemIndex, 1);
+
+    // ažuriraj cenu
+    this.calculateTotal();
+
+    console.log(`Uklonjen proizvod: ${removedItem.name}`);
   }
 
   calculateTotal() {
@@ -168,18 +196,8 @@ const product3 = new Product(3, "Ledeni zmaj", 25, 8, "fantastika");
 const products = [product1, product2, product3];
 
 // Korisnici
-const user = new User(
-  "janedoe",
-  "janedoe@gmail.com",
-  true
-);
-
-const admin = new Admin(
-  "admin1",
-  "admin@gmail.com",
-  true,
-  "administrator"
-);
+const user = new User("janedoe", "janedoe@gmail.com", true);
+const admin = new Admin("admin1", "admin@gmail.com", true, "administrator");
 
 // Korpa
 const cart = new Cart();
@@ -200,13 +218,13 @@ console.log(cart);
 // == TEST KOLIČINA PROIZVODA ==
 console.log("=== KOLIČINA ===");
 
-console.log("Inicijalna količina: ", product1.quantity)
+console.log("Inicijalna količina: ", product1.quantity);
 
 product1.decreaseStock(3);
-console.log("Količina -3: ", product1.quantity)
+console.log("Količina -3: ", product1.quantity);
 
 product1.increaseStock(2);
-console.log("Količina +2: ", product1.quantity)
+console.log("Količina +2: ", product1.quantity);
 
 // LOGIN
 console.log("=== LOGIN TEST ===");
@@ -246,6 +264,22 @@ console.log("Posle neuspešnog dodavanja:");
 console.log(cart);
 console.log(product2);
 
+// == TEST removeFromCart ==
+console.log("=== REMOVE TEST ===");
+
+console.log("PRE uklanjanja:");
+console.log(cart);
+console.log(product1);
+
+cart.removeFromCart(1, products);
+
+console.log("POSLE uklanjanja:");
+console.log(cart);
+console.log(product1);
+
+// izbacivanje nepostojećeg proizvoda
+cart.removeFromCart(999, products);
+
 // == TEST ADMIN ==
 console.log("=== ADMIN TEST ===");
 
@@ -253,13 +287,7 @@ console.log("Lista proizvoda PRE:");
 console.log(products);
 
 // novi proizvod
-const product4 = new Product(
-  4,
-  "Mali princ",
-  18,
-  12,
-  "roman"
-);
+const product4 = new Product(4, "Mali princ", 18, 12, "roman");
 
 // uspešno dodavanje
 admin.addNewProduct(products, product4);
@@ -279,12 +307,5 @@ admin.addNewProduct(products, {
 // == TEST getDiscount ==
 console.log("=== DISCOUNT TEST ===");
 
-console.log(
-  "User discount:",
-  user.getDiscount()
-);
-
-console.log(
-  "Admin discount:",
-  admin.getDiscount()
-);
+console.log("User discount:", user.getDiscount());
+console.log("Admin discount:", admin.getDiscount());
