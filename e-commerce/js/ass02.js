@@ -117,6 +117,37 @@ class Cart {
   }
 }
 
+class Admin extends User {
+  constructor(username, email, isLoggedIn, role) {
+    super(username, email, isLoggedIn);
+
+    this.role = role;
+  }
+
+  addNewProduct(productList, newProduct) {
+    // provera da li je novi proizvod instanca klase Product
+    if (!(newProduct instanceof Product)) {
+      console.log("Objekat nije instanca klase Product.");
+      return;
+    }
+
+    // provera da li proizvod već postoji
+    const exists = productList.find(
+      product => product.id === newProduct.id
+    );
+
+    if (exists) {
+      console.log("Proizvod već postoji u listi.");
+      return;
+    }
+
+    // dodavanje proizvoda
+    productList.push(newProduct);
+
+    console.log(`Dodat novi proizvod: ${newProduct.name}`);
+  }
+}
+
 /* ===============
       OBJEKTI
 ================== */
@@ -128,11 +159,18 @@ const product3 = new Product(3, "Ledeni zmaj", 25, 8, "fantastika");
 
 const products = [product1, product2, product3];
 
-// Korisnik
+// Korisnici
 const user = new User(
   "janedoe",
   "janedoe@gmail.com",
   true
+);
+
+const admin = new Admin(
+  "admin1",
+  "admin@gmail.com",
+  true,
+  "administrator"
 );
 
 // Korpa
@@ -151,7 +189,7 @@ console.log(user);
 console.log("=== CART ===");
 console.log(cart);
 
-// KOLIČINA PROIZVODA
+// == TEST KOLIČINA PROIZVODA ==
 console.log("=== KOLIČINA ===");
 
 console.log("Inicijalna količina: ", product1.quantity)
@@ -173,7 +211,7 @@ console.log("Posle logout:", user.isLoggedIn);
 user.login();
 console.log("Posle login:", user.isLoggedIn);
 
-// DODAJ U KORPU
+// == TEST addToCart ==
 console.log("=== ADD TO CART TEST ===");
 
 console.log("Pre dodavanja:");
@@ -199,3 +237,33 @@ cart.addToCart(product2, 100);
 console.log("Posle neuspešnog dodavanja:");
 console.log(cart);
 console.log(product2);
+
+// == TEST ADMIN ==
+console.log("=== ADMIN TEST ===");
+
+console.log("Lista proizvoda PRE:");
+console.log(products);
+
+// novi proizvod
+const product4 = new Product(
+  4,
+  "Mali princ",
+  18,
+  12,
+  "roman"
+);
+
+// uspešno dodavanje
+admin.addNewProduct(products, product4);
+
+console.log("Lista proizvoda POSLE:");
+console.log(products);
+
+// pokušaj dodavanja istog proizvoda
+admin.addNewProduct(products, product4);
+
+// novi proizvod nije Product instanca
+admin.addNewProduct(products, {
+  id: 5,
+  name: "Lažni proizvod"
+});
