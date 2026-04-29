@@ -3,12 +3,43 @@
 ================== */
 
 class Product {
+  #quantity;
+
   constructor(id, name, price, quantity, category) {
     this.id = id;
     this.name = name;
     this.price = price;
-    this.quantity = quantity;
+    this.#quantity = quantity;
     this.category = category;
+  }
+
+  // getter
+  get quantity() {
+    return this.#quantity;
+  }
+
+  // smanjenje stanja
+  decreaseStock(qty) {
+    if (qty <= 0) {
+      console.log("Količina mora biti veća od 0.");
+      return;
+    }
+
+    if (this.#quantity >= qty) {
+      this.#quantity -= qty;
+    } else {
+      console.log(`Nema dovoljno proizvoda: ${this.name}`);
+    }
+  }
+
+  // povećanje stanja
+  increaseStock(qty) {
+    if (qty <= 0) {
+      console.log("Količina mora biti veća od 0.");
+      return;
+    }
+
+    this.#quantity += qty;
   }
 }
 
@@ -60,3 +91,12 @@ console.log(user);
 
 console.log("=== CART ===");
 console.log(cart);
+
+// količina proizvoda
+console.log("Inicijalna količina: ", product1.quantity)
+
+product1.decreaseStock(3);
+console.log("Količina -3: ", product1.quantity)
+
+product1.increaseStock(2);
+console.log("Količina +2: ", product1.quantity)
