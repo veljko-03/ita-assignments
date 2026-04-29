@@ -75,6 +75,46 @@ class Cart {
     this.items = [];
     this.totalPrice = 0;
   }
+
+  addToCart(product, qty) {
+    // provera stanja
+    if (product.quantity < qty) {
+      console.log(`Nema dovoljno proizvoda: ${product.name}`);
+      return;
+    }
+
+    // da li već postoji u korpi
+    const existingItem = this.items.find(
+      item => item.id === product.id
+    );
+
+    if (existingItem) {
+      existingItem.quantity += qty;
+    } else {
+      this.items.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: qty
+      });
+    }
+
+    // smanji stanje proizvoda
+    product.decreaseStock(qty);
+
+    // ažuriraj ukupnu cenu
+    this.calculateTotal();
+
+    console.log(`Dodat proizvod: ${product.name}`);
+  }
+
+  calculateTotal() {
+    this.totalPrice = 0;
+
+    for (let item of this.items) {
+      this.totalPrice += item.price * item.quantity;
+    }
+  }
 }
 
 /* ===============
@@ -111,7 +151,7 @@ console.log(user);
 console.log("=== CART ===");
 console.log(cart);
 
-// količina proizvoda
+// KOLIČINA PROIZVODA
 console.log("=== KOLIČINA ===");
 
 console.log("Inicijalna količina: ", product1.quantity)
@@ -122,7 +162,7 @@ console.log("Količina -3: ", product1.quantity)
 product1.increaseStock(2);
 console.log("Količina +2: ", product1.quantity)
 
-// prijava i odjava
+// LOGIN
 console.log("=== LOGIN TEST ===");
 
 console.log("Početni status:", user.isLoggedIn);
@@ -132,3 +172,30 @@ console.log("Posle logout:", user.isLoggedIn);
 
 user.login();
 console.log("Posle login:", user.isLoggedIn);
+
+// DODAJ U KORPU
+console.log("=== ADD TO CART TEST ===");
+
+console.log("Pre dodavanja:");
+console.log(cart);
+console.log(product1);
+
+cart.addToCart(product1, 2);
+
+console.log("Posle dodavanja (x2):");
+console.log(cart);
+console.log(product1);
+
+// dodavanje istog proizvoda
+cart.addToCart(product1, 3);
+
+console.log("Posle ponovnog dodavanja (x3):");
+console.log(cart);
+console.log(product1);
+
+// nema dovoljno proizvoda
+cart.addToCart(product2, 100);
+
+console.log("Posle neuspešnog dodavanja:");
+console.log(cart);
+console.log(product2);
