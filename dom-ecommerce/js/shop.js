@@ -72,6 +72,7 @@ products.forEach((product) => {
   card.style.flexDirection = "column";
   card.style.gap = "16px";
   card.style.transition = "0.3s";
+  card.style.cursor = "pointer";
 
   card.addEventListener("mouseenter", () => {
     card.style.transform = "translateY(-5px)";
@@ -79,6 +80,10 @@ products.forEach((product) => {
 
   card.addEventListener("mouseleave", () => {
     card.style.transform = "translateY(0)";
+  });
+
+  card.addEventListener("click", () => {
+    window.location.href = "./product.html";
   });
 
   // PRODUCT NAME
@@ -174,7 +179,8 @@ products.forEach((product) => {
     addToCartBtn.style.backgroundColor = "#111";
   });
 
-  addToCartBtn.addEventListener("click", () => {
+  addToCartBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     cartCount++;
     cartCounter.textContent = cartCount;
   });
