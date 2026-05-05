@@ -45,21 +45,23 @@ const products = [
 
 const main = document.querySelector("main");
 
-/* ===============
+let cartCount = 0;
+const cartCounter = document.querySelector(".cart-count");
+
+/* ==================
       PRODUCTS
-   =============== */
+================== */
 
 const productsContainer = document.createElement("div");
 
 productsContainer.style.display = "grid";
-productsContainer.style.gridTemplateColumns = "repeat(auto-fit, minmax(250px, 1fr))";
+productsContainer.style.gridTemplateColumns =
+  "repeat(auto-fit, minmax(250px, 1fr))";
 productsContainer.style.gap = "20px";
 productsContainer.style.padding = "40px";
 
-
 products.forEach((product) => {
-
-  // CARDS
+  // CARD
   const card = document.createElement("div");
 
   card.style.backgroundColor = "white";
@@ -100,7 +102,6 @@ products.forEach((product) => {
   const colorsTitle = document.createElement("p");
 
   colorsTitle.textContent = "Colors:";
-
   colorsTitle.style.fontWeight = "bold";
 
   // COLORS CONTAINER
@@ -128,7 +129,6 @@ products.forEach((product) => {
   const sizesTitle = document.createElement("p");
 
   sizesTitle.textContent = "Sizes:";
-
   sizesTitle.style.fontWeight = "bold";
 
   // SIZES CONTAINER
@@ -172,6 +172,11 @@ products.forEach((product) => {
 
   addToCartBtn.addEventListener("mouseleave", () => {
     addToCartBtn.style.backgroundColor = "#111";
+  });
+
+  addToCartBtn.addEventListener("click", () => {
+    cartCount++;
+    cartCounter.textContent = cartCount;
   });
 
   // APPEND ELEMENTS
