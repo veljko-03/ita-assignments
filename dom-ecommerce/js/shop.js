@@ -129,7 +129,7 @@ products.forEach((product) => {
   });
 
   card.addEventListener("click", () => {
-    window.location.href = "./product.html";
+    window.location.href =  `./product.html?id=${product.id}`;
   });
   
   // PRODUCT NAME

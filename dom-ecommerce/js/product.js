@@ -1,31 +1,133 @@
-const product = {
-  id: 1,
-  name: "Classic T-Shirt",
-  price: 25,
-  description:
-    "Comfortable and modern t-shirt made from premium cotton material.",
-
-  // VARIANTS
-  variants: [
-    {
-      color: "Black",
-      sizes: ["S", "M", "L"]
-    },
-    {
-      color: "White",
-      sizes: ["M", "L", "XL"]
-    },
-    {
-      color: "Blue",
-      sizes: ["S", "XL"]
-    }
-  ]
-};
+const products = [
+  {
+    id: 1,
+    name: "Classic T-Shirt",
+    price: 25,
+    description: "Comfortable and modern t-shirt made from premium cotton material.",
+    variants: [
+      {
+        color: "Black",
+        sizes: ["S", "M", "L"],
+      },
+      {
+        color: "White",
+        sizes: ["M", "L"],
+      },
+      {
+        color: "Blue",
+        sizes: ["S", "XL"],
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: "Winter Jacket",
+    price: 120,
+    description: "Warm winter jacket for cold days.",
+    variants: [
+      {
+        color: "Gray",
+        sizes: ["M", "L"],
+      },
+      {
+        color: "Black",
+        sizes: ["L", "XL"],
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: "Elegant Dress",
+    price: 80,
+    description: "Elegant dress for special occasions.",
+    variants: [
+      {
+        color: "Red",
+        sizes: ["S", "M"],
+      },
+      {
+        color: "Pink",
+        sizes: ["M"],
+      },
+      {
+        color: "White",
+        sizes: ["S"],
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: "Blue Jeans",
+    price: 60,
+    description: "Blue ripped jeans for every occasion.",
+    variants: [
+      {
+        color: "Blue",
+        sizes: ["M", "L"],
+      },
+      {
+        color: "Dark Blue",
+        sizes: ["L", "XL"],
+      },
+    ],
+  },
+  {
+    id: 5,
+    name: "Hoodie",
+    price: 45,
+    description: "Hoodie for every occasion.",
+    variants: [
+      {
+        color: "Black",
+        sizes: ["S", "M", "L"],
+      },
+      {
+        color: "Green",
+        sizes: ["M", "XL"],
+      },
+      {
+        color: "Gray",
+        sizes: ["S", "XL"],
+      },
+    ],
+  },
+  {
+    id: 6,
+    name: "Summer Shorts",
+    price: 35,
+    description: "Enjoy summer with perfect shorts.",
+    variants: [
+      {
+        color: "Yellow",
+        sizes: ["S", "M"],
+      },
+      {
+        color: "White",
+        sizes: ["M", "L"],
+      },
+    ],
+  },
+];
 
 const main = document.querySelector("main");
 const cartCounter = document.querySelector(".cart-count");
 
 let cartCount = 0;
+
+/* ======================
+    PRODUCT TO DISPLAY
+====================== */
+
+// GET PRODUCT ID FROM URL
+const params =
+  new URLSearchParams(window.location.search);
+
+const productId =
+  Number(params.get("id"));
+
+// FIND PRODUCT
+const product =
+  products.find((item) => item.id === productId);
 
 /* ================
      PRODUCT
