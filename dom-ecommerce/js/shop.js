@@ -3,44 +3,104 @@ const products = [
     id: 1,
     name: "Classic T-Shirt",
     price: 25,
-    colors: ["Black", "White", "Blue"],
-    sizes: ["S", "M", "L"]
+    variants: [
+      {
+        color: "Black",
+        sizes: ["S", "M", "L"],
+      },
+      {
+        color: "White",
+        sizes: ["M", "L"],
+      },
+      {
+        color: "Blue",
+        sizes: ["S", "XL"],
+      },
+    ],
   },
   {
     id: 2,
     name: "Winter Jacket",
     price: 120,
-    colors: ["Gray", "Black"],
-    sizes: ["M", "L", "XL"]
+    variants: [
+      {
+        color: "Gray",
+        sizes: ["M", "L"],
+      },
+      {
+        color: "Black",
+        sizes: ["L", "XL"],
+      },
+    ],
   },
   {
     id: 3,
     name: "Elegant Dress",
     price: 80,
-    colors: ["Red", "Pink", "White"],
-    sizes: ["S", "M"]
+    variants: [
+      {
+        color: "Red",
+        sizes: ["S", "M"],
+      },
+      {
+        color: "Pink",
+        sizes: ["M"],
+      },
+      {
+        color: "White",
+        sizes: ["S"],
+      },
+    ],
   },
   {
     id: 4,
     name: "Blue Jeans",
     price: 60,
-    colors: ["Blue", "Dark Blue"],
-    sizes: ["M", "L", "XL"]
+    variants: [
+      {
+        color: "Blue",
+        sizes: ["M", "L"],
+      },
+      {
+        color: "Dark Blue",
+        sizes: ["L", "XL"],
+      },
+    ],
   },
   {
     id: 5,
     name: "Hoodie",
     price: 45,
-    colors: ["Black", "Green", "Gray"],
-    sizes: ["S", "M", "L", "XL"]
+    variants: [
+      {
+        color: "Black",
+        sizes: ["S", "M", "L"],
+      },
+      {
+        color: "Green",
+        sizes: ["M", "XL"],
+      },
+      {
+        color: "Gray",
+        sizes: ["S", "XL"],
+      },
+    ],
   },
   {
     id: 6,
     name: "Summer Shorts",
     price: 35,
-    colors: ["Yellow", "White"],
-    sizes: ["S", "M", "L"]
-  }
+    variants: [
+      {
+        color: "Yellow",
+        sizes: ["S", "M"],
+      },
+      {
+        color: "White",
+        sizes: ["M", "L"],
+      },
+    ],
+  },
 ];
 
 const main = document.querySelector("main");
@@ -116,20 +176,6 @@ products.forEach((product) => {
   colorsContainer.style.flexWrap = "wrap";
   colorsContainer.style.gap = "8px";
 
-  // CREATE COLORS
-  product.colors.forEach((color) => {
-    const colorItem = document.createElement("span");
-
-    colorItem.textContent = color;
-
-    colorItem.style.padding = "6px 10px";
-    colorItem.style.backgroundColor = "#f1f1f1";
-    colorItem.style.borderRadius = "8px";
-    colorItem.style.fontSize = "14px";
-
-    colorsContainer.appendChild(colorItem);
-  });
-
   // SIZES TITLE
   const sizesTitle = document.createElement("p");
 
@@ -143,18 +189,53 @@ products.forEach((product) => {
   sizesContainer.style.flexWrap = "wrap";
   sizesContainer.style.gap = "8px";
 
-  // CREATE SIZES
-  product.sizes.forEach((size) => {
-    const sizeItem = document.createElement("span");
+  // RENDER SIZES
+  const renderSizes = (sizes) => {
+    sizesContainer.innerHTML = "";
+    sizes.forEach((size) => {
+      const sizeItem = document.createElement("span");
+      sizeItem.textContent = size;
 
-    sizeItem.textContent = size;
+      sizeItem.style.padding = "6px 10px";
+      sizeItem.style.backgroundColor = "#e0e7ff";
+      sizeItem.style.borderRadius = "8px";
+      sizeItem.style.fontSize = "14px";
 
-    sizeItem.style.padding = "6px 10px";
-    sizeItem.style.backgroundColor = "#e0e7ff";
-    sizeItem.style.borderRadius = "8px";
-    sizeItem.style.fontSize = "14px";
+      sizesContainer.appendChild(sizeItem);
+    });
+  };
 
-    sizesContainer.appendChild(sizeItem);
+  // RENDER COLORS
+  product.variants.forEach((variant, index) => {
+    const colorItem = document.createElement("span");
+    colorItem.textContent = variant.color;
+
+    colorItem.style.padding = "6px 10px";
+    colorItem.style.backgroundColor = "#f1f1f1";
+    colorItem.style.borderRadius = "8px";
+    colorItem.style.fontSize = "14px";
+    colorItem.style.cursor = "pointer";
+
+    if (index === 0) {
+      colorItem.style.border = "2px solid #111";
+
+      renderSizes(variant.sizes);
+    }
+
+    // COLOR CLICK
+    colorItem.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const allColors = colorsContainer.querySelectorAll("span");
+      allColors.forEach((item) => {
+        item.style.border = "none";
+      });
+      colorItem.style.border = "2px solid #111";
+
+      renderSizes(variant.sizes);
+    });
+
+    colorsContainer.appendChild(colorItem);
   });
 
   // ADD TO CART BUTTON
