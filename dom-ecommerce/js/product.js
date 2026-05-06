@@ -4,12 +4,27 @@ const product = {
   price: 25,
   description:
     "Comfortable and modern t-shirt made from premium cotton material.",
-  colors: ["Black", "White", "Blue"],
-  sizes: ["S", "M", "L", "XL"],
+
+  // VARIANTS
+  variants: [
+    {
+      color: "Black",
+      sizes: ["S", "M", "L"]
+    },
+    {
+      color: "White",
+      sizes: ["M", "L", "XL"]
+    },
+    {
+      color: "Blue",
+      sizes: ["S", "XL"]
+    }
+  ]
 };
 
 const main = document.querySelector("main");
 const cartCounter = document.querySelector(".cart-count");
+
 let cartCount = 0;
 
 /* ================
@@ -61,10 +76,48 @@ colorsContainer.style.display = "flex";
 colorsContainer.style.flexWrap = "wrap";
 colorsContainer.style.gap = "12px";
 
-// CREATE COLORS
-product.colors.forEach((color) => {
+// SIZES SECTION
+const sizesTitle = document.createElement("h3");
+sizesTitle.textContent = "Available Sizes";
+sizesTitle.style.fontSize = "22px";
+
+const sizesContainer = document.createElement("div");
+sizesContainer.style.display = "flex";
+sizesContainer.style.flexWrap = "wrap";
+sizesContainer.style.gap = "12px";
+
+// RENDER SIZES
+const renderSizes = (sizes) => {
+  sizesContainer.innerHTML = "";
+
+  sizes.forEach((size) => {
+    const sizeBox = document.createElement("span");
+    sizeBox.textContent = size;
+
+    sizeBox.style.padding = "10px 16px";
+    sizeBox.style.backgroundColor = "#e0e7ff";
+    sizeBox.style.borderRadius = "10px";
+    sizeBox.style.fontSize = "15px";
+    sizeBox.style.cursor = "pointer";
+    sizeBox.style.transition = "0.3s";
+
+    sizeBox.addEventListener("mouseenter", () => {
+      sizeBox.style.backgroundColor = "#c7d2fe";
+    });
+
+    sizeBox.addEventListener("mouseleave", () => {
+      sizeBox.style.backgroundColor = "#e0e7ff";
+    });
+
+    sizesContainer.appendChild(sizeBox);
+  });
+};
+
+// RENDER COLORS
+product.variants.forEach((variant) => {
   const colorBox = document.createElement("span");
-  colorBox.textContent = color;
+
+  colorBox.textContent = variant.color;
 
   colorBox.style.padding = "10px 16px";
   colorBox.style.backgroundColor = "#f1f1f1";
@@ -81,40 +134,20 @@ product.colors.forEach((color) => {
     colorBox.style.backgroundColor = "#f1f1f1";
   });
 
+  colorBox.addEventListener("click", () => {
+    const allColors = colorsContainer.querySelectorAll("span");
+    allColors.forEach((item) => {
+      item.style.border = "none";
+    });
+    colorBox.style.border = "2px solid #111";
+
+    renderSizes(variant.sizes);
+  });
+
   colorsContainer.appendChild(colorBox);
 });
 
-// SIZES SECTION
-const sizesTitle = document.createElement("h3");
-sizesTitle.textContent = "Available Sizes";
-sizesTitle.style.fontSize = "22px";
-
-const sizesContainer = document.createElement("div");
-sizesContainer.style.display = "flex";
-sizesContainer.style.flexWrap = "wrap";
-sizesContainer.style.gap = "12px";
-
-// CREATE SIZES
-product.sizes.forEach((size) => {
-  const sizeBox = document.createElement("span");
-  sizeBox.textContent = size;
-  sizeBox.style.padding = "10px 16px";
-  sizeBox.style.backgroundColor = "#e0e7ff";
-  sizeBox.style.borderRadius = "10px";
-  sizeBox.style.fontSize = "15px";
-  sizeBox.style.cursor = "pointer";
-  sizeBox.style.transition = "0.3s";
-
-  sizeBox.addEventListener("mouseenter", () => {
-    sizeBox.style.backgroundColor = "#c7d2fe";
-  });
-
-  sizeBox.addEventListener("mouseleave", () => {
-    sizeBox.style.backgroundColor = "#e0e7ff";
-  });
-
-  sizesContainer.appendChild(sizeBox);
-});
+renderSizes(product.variants[0].sizes);
 
 // ADD TO CART BUTTON
 const addToCartBtn = document.createElement("button");
