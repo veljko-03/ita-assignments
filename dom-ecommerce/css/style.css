@@ -229,6 +229,54 @@ body {
 }
 
 /* ================
+    LOGIN PAGE
+================ */
+.form-container {
+  max-width: 450px;
+  margin: 60px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-title {
+  text-align: center;
+  color: #111;
+}
+
+.input {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.login-btn {
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background-color: #111;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-status {
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* ================
    RESPONSIVNESS
 ================ */
 /* Header */
