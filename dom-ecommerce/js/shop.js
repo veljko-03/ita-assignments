@@ -113,27 +113,13 @@ const cartCounter = document.querySelector(".cart-count");
 ================== */
 
 const productsContainer = document.createElement("div");
-
-productsContainer.style.display = "grid";
-productsContainer.style.gridTemplateColumns =
-  "repeat(auto-fit, minmax(250px, 1fr))";
-productsContainer.style.gap = "20px";
-productsContainer.style.padding = "40px";
+productsContainer.className = "products-container";
 
 products.forEach((product) => {
   // CARD
   const card = document.createElement("div");
-
-  card.style.backgroundColor = "white";
-  card.style.padding = "25px";
-  card.style.borderRadius = "16px";
-  card.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
-  card.style.display = "flex";
-  card.style.flexDirection = "column";
-  card.style.gap = "16px";
-  card.style.transition = "0.3s";
-  card.style.cursor = "pointer";
-
+  card.className = "card";
+  
   card.addEventListener("mouseenter", () => {
     card.style.transform = "translateY(-5px)";
   });
@@ -145,61 +131,43 @@ products.forEach((product) => {
   card.addEventListener("click", () => {
     window.location.href = "./product.html";
   });
-
+  
   // PRODUCT NAME
   const productName = document.createElement("h2");
-
+  productName.className = "card-product-name";
   productName.textContent = product.name;
-
-  productName.style.fontSize = "24px";
-  productName.style.color = "#111";
-
+  
   // PRODUCT PRICE
   const productPrice = document.createElement("p");
-
+  productPrice.className = "card-product-price";
   productPrice.textContent = `$${product.price}`;
-
-  productPrice.style.fontSize = "18px";
-  productPrice.style.fontWeight = "bold";
-  productPrice.style.color = "#2563eb";
-
+  
   // COLORS TITLE
   const colorsTitle = document.createElement("p");
-
+  colorsTitle.className = "card-variant-title";
   colorsTitle.textContent = "Colors:";
-  colorsTitle.style.fontWeight = "bold";
-
+  
   // COLORS CONTAINER
   const colorsContainer = document.createElement("div");
-
-  colorsContainer.style.display = "flex";
-  colorsContainer.style.flexWrap = "wrap";
-  colorsContainer.style.gap = "8px";
-
+  colorsContainer.className = "card-variant-container";
+  
   // SIZES TITLE
   const sizesTitle = document.createElement("p");
-
+  sizesTitle.className = "card-variant-title";
   sizesTitle.textContent = "Sizes:";
-  sizesTitle.style.fontWeight = "bold";
-
+  
   // SIZES CONTAINER
   const sizesContainer = document.createElement("div");
-
-  sizesContainer.style.display = "flex";
-  sizesContainer.style.flexWrap = "wrap";
-  sizesContainer.style.gap = "8px";
-
+  sizesContainer.className = "card-variant-container";
+  
   // RENDER SIZES
   const renderSizes = (sizes) => {
     sizesContainer.innerHTML = "";
     sizes.forEach((size) => {
       const sizeItem = document.createElement("span");
       sizeItem.textContent = size;
-
-      sizeItem.style.padding = "6px 10px";
+      sizeItem.className = "variant-item";
       sizeItem.style.backgroundColor = "#e0e7ff";
-      sizeItem.style.borderRadius = "8px";
-      sizeItem.style.fontSize = "14px";
 
       sizesContainer.appendChild(sizeItem);
     });
@@ -209,11 +177,8 @@ products.forEach((product) => {
   product.variants.forEach((variant, index) => {
     const colorItem = document.createElement("span");
     colorItem.textContent = variant.color;
-
-    colorItem.style.padding = "6px 10px";
+    colorItem.className = "variant-item";
     colorItem.style.backgroundColor = "#f1f1f1";
-    colorItem.style.borderRadius = "8px";
-    colorItem.style.fontSize = "14px";
     colorItem.style.cursor = "pointer";
 
     if (index === 0) {
@@ -240,17 +205,8 @@ products.forEach((product) => {
 
   // ADD TO CART BUTTON
   const addToCartBtn = document.createElement("button");
-
   addToCartBtn.textContent = "Add to Cart";
-
-  addToCartBtn.style.border = "none";
-  addToCartBtn.style.padding = "12px";
-  addToCartBtn.style.borderRadius = "10px";
-  addToCartBtn.style.backgroundColor = "#111";
-  addToCartBtn.style.color = "white";
-  addToCartBtn.style.fontSize = "16px";
-  addToCartBtn.style.cursor = "pointer";
-  addToCartBtn.style.transition = "0.3s";
+  addToCartBtn.className = "card-btn";
 
   addToCartBtn.addEventListener("mouseenter", () => {
     addToCartBtn.style.backgroundColor = "#333";
