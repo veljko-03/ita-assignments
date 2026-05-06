@@ -119,7 +119,10 @@ renderSizes(product.variants[0].sizes);
 
 // ADD TO CART BUTTON
 const addToCartBtn = document.createElement("button");
-addToCartBtn.className = "add-to-cart-btn";
+addToCartBtn.classList.add(
+  "btn",
+  "add-to-cart-btn"
+);
 addToCartBtn.textContent = "Add to Cart";
 
 addToCartBtn.addEventListener("mouseenter", () => {

@@ -51,7 +51,10 @@ passwordInput.addEventListener("change", () => {
 
 // LOGIN BUTTON
 const loginBtn = document.createElement("button");
-loginBtn.className = "login-btn";
+loginBtn.classList.add(
+  "btn",
+  "login-submit-btn"
+);
 
 loginBtn.textContent = "Login";
 loginBtn.type = "submit";

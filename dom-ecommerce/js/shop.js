@@ -206,7 +206,10 @@ products.forEach((product) => {
   // ADD TO CART BUTTON
   const addToCartBtn = document.createElement("button");
   addToCartBtn.textContent = "Add to Cart";
-  addToCartBtn.className = "card-btn";
+  addToCartBtn.classList.add(
+  "btn",
+  "card-btn"
+  );
 
   addToCartBtn.addEventListener("mouseenter", () => {
     addToCartBtn.style.backgroundColor = "#333";
