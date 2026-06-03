@@ -103,6 +103,10 @@ const products = [
 const productsSection = document.getElementById("products");
 
 products.forEach((product) => {
+  if (!product.inStock) {
+    return;
+  }
+
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
 
