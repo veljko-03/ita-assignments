@@ -109,6 +109,7 @@ products.forEach((product) => {
 
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
+  productCard.dataset.id = product.id;
 
   const productImg = document.createElement("img");
   productImg.classList.add("product-img");
@@ -129,6 +130,7 @@ products.forEach((product) => {
   const button = document.createElement("button");
   button.classList.add("btn");
   button.textContent = "Add to Cart";
+  button.dataset.id = product.id;
 
   priceRow.appendChild(price);
 
