@@ -62,7 +62,7 @@ const renderProducts = (products) => {
     priceRow.classList.add("price-row");
 
     const price = document.createElement("span");
-    price.classList.add("price");
+    price.classList.add("product-price");
     price.textContent = `$${product.price}`;
 
     const button = document.createElement("button");
