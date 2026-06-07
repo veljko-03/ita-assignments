@@ -102,6 +102,15 @@ const products = [
 
 const productsSection = document.getElementById("products");
 
+function getCategoryFromQueryString() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("category");
+}
+
+const selectedCategory = getCategoryFromQueryString();
+
+console.log(selectedCategory);
+
 products.forEach((product) => {
   if (!product.inStock) {
     return;
