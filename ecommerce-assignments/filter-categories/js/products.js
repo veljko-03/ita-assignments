@@ -37,6 +37,15 @@ const renderProducts = (products) => {
         .startsWith(selectedCategory.toLowerCase())
     );
 
+    if (filteredProducts.length === 0) {
+    productsSection.innerHTML = `
+      <p class="empty-message">
+        No products found for this category
+      </p>
+    `;
+    return;
+    }
+  
   filteredProducts.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
