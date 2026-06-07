@@ -39,6 +39,10 @@ body {
   color: #2563eb;
 }
 
+.product-img {
+  border-radius: 15px;
+}
+
 .btn {
   padding: 12px;
   border-radius: 10px;
