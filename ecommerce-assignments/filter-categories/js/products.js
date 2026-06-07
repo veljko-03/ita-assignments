@@ -1,152 +1,71 @@
-const products = [
-  {
-    id: 1,
-    name: "Blazer",
-    price: 95,
-    currency: "$",
-    category: "Jackets",
-    image: "images/blazer.png",
-    inStock: true,
-  },
-  {
-    id: 2,
-    name: "Elegant A-line trousers",
-    price: 72,
-    currency: "$",
-    category: "Trousers",
-    image: "images/aline-trousers.png",
-    inStock: true,
-  },
-  {
-    id: 3,
-    name: "Midi Coat",
-    price: 105,
-    currency: "$",
-    category: "Coats",
-    image: "images/midi-coat.png",
-    inStock: true,
-  },
-  {
-    id: 4,
-    name: "Wool Blazer",
-    price: 55,
-    currency: "$",
-    category: "Jackets",
-    image: "images/wool-blazer.png",
-    inStock: true,
-  },
-  {
-    id: 5,
-    name: "Wool Pink Blazer",
-    price: 75,
-    currency: "$",
-    category: "Jackets",
-    image: "images/pink-wool-blazer.png",
-    inStock: false,
-  },
-  {
-    id: 6,
-    name: "Retro Jeans",
-    price: 77,
-    currency: "$",
-    category: "Jeans",
-    image: "images/retro-jeans.png",
-    inStock: true,
-  },
-  {
-    id: 7,
-    name: "Belted Coat",
-    price: 95,
-    currency: "$",
-    category: "Coats",
-    image: "images/belted-coat.png",
-    inStock: true,
-  },
-  {
-    id: 8,
-    name: "Elegant Trousers",
-    price: 28,
-    currency: "$",
-    category: "Trousers",
-    image: "images/elegant-trousers.png",
-    inStock: false,
-  },
-  {
-    id: 9,
-    name: "High-Waist Trousers",
-    price: 30,
-    currency: "$",
-    category: "Trousers",
-    image: "images/high-waist-trousers.png",
-    inStock: true,
-  },
-  {
-    id: 10,
-    name: "High-Waist Black Trousers",
-    price: 30,
-    currency: "$",
-    category: "Trousers",
-    image: "images/black-trousers.png",
-    inStock: false,
-  },
-  {
-    id: 11,
-    name: "Chunky Knit Sweater",
-    price: 55,
-    currency: "$",
-    category: "Sweater",
-    image: "images/knit-sweater.png",
-    inStock: true,
-  },
-];
+const productsSection = document.getElementById("productsContainer");
 
-const productsSection = document.getElementById("products");
-
-function getCategoryFromQueryString() {
+// Kategorija iz query string-a
+const getCategoryFromQueryString = () => {
   const params = new URLSearchParams(window.location.search);
   return params.get("category");
 }
 
 const selectedCategory = getCategoryFromQueryString();
 
-console.log(selectedCategory);
+async function fetchProducts() {
+  try {
+    const response = await fetch(
+      "https://api.advanziaeducation.com/api/products",
+      {
+        method: "GET",
+        headers: {
+          "X-API-Key": "05bce3c3b87a319f44cdd405aa1e03019f41d38c49c64436a82198a6a36daf51" 
+        }
+      }
+    );
 
-products.forEach((product) => {
-  if (!product.inStock) {
-    return;
+    const data = await response.json();
+
+    renderProducts(data);
+  } catch (error) {
+    console.error("Error fetching products:", error);
   }
+}
 
-  const productCard = document.createElement("div");
-  productCard.classList.add("product-card");
-  productCard.dataset.id = product.id;
+// Filter + Render
+const renderProducts = (products) => {
+  const filteredProducts = products
+    .filter((product) =>
+      product.category
+        .toLowerCase()
+        .startsWith(selectedCategory.toLowerCase())
+    );
 
-  const productImg = document.createElement("img");
-  productImg.classList.add("product-img");
-  productImg.src = product.image;
-  productImg.alt = product.name;
+  filteredProducts.forEach((product) => {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+    productCard.dataset.id = product.id;
 
-  const productTitle = document.createElement("p");
-  productTitle.classList.add("product-title");
-  productTitle.textContent = product.name;
+    const productTitle = document.createElement("p");
+    productTitle.classList.add("product-title");
+    productTitle.textContent = product.title;
 
-  const priceRow = document.createElement("div");
-  priceRow.classList.add("price-row");
+    const priceRow = document.createElement("div");
+    priceRow.classList.add("price-row");
 
-  const price = document.createElement("span");
-  price.classList.add("price");
-  price.textContent = `${product.currency}${product.price}`;
+    const price = document.createElement("span");
+    price.classList.add("price");
+    price.textContent = `$${product.price}`;
 
-  const button = document.createElement("button");
-  button.classList.add("btn");
-  button.textContent = "Add to Cart";
-  button.dataset.id = product.id;
+    const button = document.createElement("button");
+    button.classList.add("btn", "add-to-cart");
+    button.textContent = "Add to Cart";
+    button.dataset.id = product.id;
 
-  priceRow.appendChild(price);
+    priceRow.appendChild(price);
 
-  productCard.appendChild(productImg);
-  productCard.appendChild(productTitle);
-  productCard.appendChild(priceRow);
-  productCard.appendChild(button);
+    productCard.appendChild(productTitle);
+    productCard.appendChild(priceRow);
+    productCard.appendChild(button);
 
-  productsSection.appendChild(productCard);
-});
+    productsSection.appendChild(productCard);
+  });
+}
+
+fetchProducts();
