@@ -52,4 +52,8 @@ body {
 
 .empty-message {
   text-align: center;
+  font-size: 20px;
+  color: #666;
+  padding: 40px;
+  grid-column: 1 / -1;
 }
