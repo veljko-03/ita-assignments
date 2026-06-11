@@ -36,7 +36,6 @@ if (now >= expiresAt) {
 const remainingTime = expiresAt.getTime() - now.getTime();
 
 console.log("Preostalo vreme (ms):", remainingTime);
-
 console.log("Preostalo vreme (sek):", Math.floor(remainingTime / 1000));
 
 // Auto logout

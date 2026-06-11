@@ -5,8 +5,7 @@ const logoutReason = localStorage.getItem("logoutReason");
 
 if (logoutReason === "expired") {
   setTimeout(() => {
-    loginStatus.textContent =
-      "Session expired. Please log in again.";
+    loginStatus.textContent = "Session expired. Please log in again.";
     loginStatus.style.color = "red";
 
     localStorage.removeItem("logoutReason");
@@ -116,6 +115,7 @@ form.addEventListener("submit", async (e) => {
     if (data.token) {
       localStorage.setItem("logged", "true");
       localStorage.setItem("token", data.token);
+      
       const testExpiresAt = new Date(Date.now() + 60 * 1000).toISOString();
       localStorage.setItem("tokenExpiresAt", testExpiresAt);
 
