@@ -1,18 +1,10 @@
 const logged = localStorage.getItem("logged");
 const token = localStorage.getItem("token");
-const tokenExpiresAt =
-  localStorage.getItem("tokenExpiresAt");
+const tokenExpiresAt = localStorage.getItem("tokenExpiresAt");
 
 // Check data
-if (
-  !logged ||
-  !token ||
-  !tokenExpiresAt ||
-  logged !== "true"
-) {
-  console.log(
-    "Nedostaju podaci za autentikaciju."
-  );
+if (!logged || !token || !tokenExpiresAt || logged !== "true") {
+  console.log("Nedostaju podaci za autentikaciju.");
 
   window.location.href = "./login.html";
 }
@@ -26,9 +18,7 @@ console.log("Vreme isteka:", expiresAt);
 
 // Already expired token
 if (now >= expiresAt) {
-  console.log(
-    "Token je već istekao. Logout..."
-  );
+  console.log("Token je već istekao. Logout...");
 
   localStorage.removeItem("logged");
   localStorage.removeItem("token");
@@ -43,24 +33,15 @@ if (now >= expiresAt) {
 }
 
 // Remaining time
-const remainingTime =
-  expiresAt.getTime() - now.getTime();
+const remainingTime = expiresAt.getTime() - now.getTime();
 
-console.log(
-  "Preostalo vreme (ms):",
-  remainingTime
-);
+console.log("Preostalo vreme (ms):", remainingTime);
 
-console.log(
-  "Preostalo vreme (sek):",
-  Math.floor(remainingTime / 1000)
-);
+console.log("Preostalo vreme (sek):", Math.floor(remainingTime / 1000));
 
 // Auto logout
 setTimeout(() => {
-  console.log(
-    "Istek vremena. Pokrećem logout..."
-  );
+  console.log("Istek vremena. Pokrećem logout...");
 
   localStorage.removeItem("logged");
   localStorage.removeItem("token");
