@@ -16,20 +16,20 @@ title.className = "form-title";
 title.textContent = "Login";
 
 // EMAIL
-const emailInput = document.createElement("input");
-emailInput.className = "input";
+const usernameInput = document.createElement("input");
+usernameInput.className = "input";
 
-emailInput.type = "email";
-emailInput.placeholder = "Enter your email";
+usernameInput.type = "text";
+usernameInput.placeholder = "Enter your username";
 
-emailInput.addEventListener("input", () => {
-  if (emailInput.value.trim() !== "") {
+usernameInput.addEventListener("input", () => {
+  if (usernameInput.value.trim() !== "") {
     loginStatus.textContent = "";
   }
 });
 
-emailInput.addEventListener("change", () => {
-  emailInput.style.border = "2px solid #2563eb";
+usernameInput.addEventListener("change", () => {
+  usernameInput.style.border = "2px solid #2563eb";
 });
 
 // PASSWORD INPUT
@@ -78,41 +78,64 @@ loginStatus.className = "login-status";
 loginStatus.id = "login-status";
 
 // FORM SUBMIT
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
+  const username = usernameInput.value.trim();
+  const password = passwordInput.value.trim();
 
-  // BOTH EMPTY
-  if (emailValue === "" && passwordValue === "") {
-    loginStatus.textContent = "Please, enter email and password";
+  try {
+    const response = await fetch(
+      "https://api.advanziaeducation.com/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "X-API-Key": "05bce3c3b87a319f44cdd405aa1e03019f41d38c49c64436a82198a6a36daf51",
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    // Login succesful
+    if (data.token) {
+      localStorage.setItem("logged", "true");
+      localStorage.setItem("token", data.token);
+      localStorage.setItem(
+        "tokenExpiresAt",
+        data.expiresAt
+      );
+
+      loginStatus.textContent =
+        "Login successful. Welcome!";
+      loginStatus.style.color = "green";
+
+      return;
+    }
+
+    // Login failed
+    if (data.error) {
+      localStorage.setItem("logged", "false");
+
+      loginStatus.textContent = data.error;
+      loginStatus.style.color = "red";
+    }
+  } catch (error) {
+    localStorage.setItem("logged", "false");
+
+    loginStatus.textContent =
+      "An error occurred. Please try again.";
     loginStatus.style.color = "red";
-    return;
   }
-
-  // EMAIL EMPTY
-  if (emailValue === "") {
-    loginStatus.textContent = "Please, enter email.";
-    loginStatus.style.color = "red";
-    return;
-  }
-
-  // PASSWORD TOO SHORT
-  if (passwordValue.length < 6) {
-    loginStatus.textContent = "Password must contain at least 6 characters.";
-    loginStatus.style.color = "red";
-    return;
-  }
-
-  // SUCCESS
-  loginStatus.textContent = "Login successful. Welcome!";
-  loginStatus.style.color = "green";
 });
 
 // APPEND ELEMENTS
 form.appendChild(title);
-form.appendChild(emailInput);
+form.appendChild(usernameInput);
 form.appendChild(passwordInput);
 form.appendChild(loginBtn);
 form.appendChild(loginStatus);
