@@ -1,5 +1,18 @@
 const main = document.querySelector("main");
 
+// Logout reason
+const logoutReason = localStorage.getItem("logoutReason");
+
+if (logoutReason === "expired") {
+  setTimeout(() => {
+    loginStatus.textContent =
+      "Session expired. Please log in again.";
+    loginStatus.style.color = "red";
+
+    localStorage.removeItem("logoutReason");
+  }, 100);
+}
+
 /* =============
       FORM
 ============= */
