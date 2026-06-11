@@ -73,3 +73,18 @@ setTimeout(() => {
 
   window.location.href = "./login.html";
 }, remainingTime);
+
+// Logout sync between tabs
+window.addEventListener("storage", (event) => {
+  if (event.key === "logged" && event.newValue !== "true") {
+    console.log("Logout detected in another tab");
+
+    window.location.href = "./login.html";
+  }
+
+  if (event.key === "tokenExpiresAt" && !event.newValue) {
+    console.log("Token removed in another tab");
+
+    window.location.href = "./login.html";
+  }
+});
