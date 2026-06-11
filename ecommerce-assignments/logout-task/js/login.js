@@ -51,10 +51,7 @@ passwordInput.addEventListener("change", () => {
 
 // LOGIN BUTTON
 const loginBtn = document.createElement("button");
-loginBtn.classList.add(
-  "btn",
-  "login-submit-btn"
-);
+loginBtn.classList.add("btn", "login-submit-btn");
 
 loginBtn.textContent = "Login";
 loginBtn.type = "submit";
@@ -90,13 +87,14 @@ form.addEventListener("submit", async (e) => {
       {
         method: "POST",
         headers: {
-          "X-API-Key": "05bce3c3b87a319f44cdd405aa1e03019f41d38c49c64436a82198a6a36daf51",
+          "X-API-Key":
+            "05bce3c3b87a319f44cdd405aa1e03019f41d38c49c64436a82198a6a36daf51",
         },
         body: JSON.stringify({
           username,
           password,
         }),
-      }
+      },
     );
 
     const data = await response.json();
@@ -105,13 +103,10 @@ form.addEventListener("submit", async (e) => {
     if (data.token) {
       localStorage.setItem("logged", "true");
       localStorage.setItem("token", data.token);
-      localStorage.setItem(
-        "tokenExpiresAt",
-        data.expiresAt
-      );
+      const testExpiresAt = new Date(Date.now() + 60 * 1000).toISOString();
+      localStorage.setItem("tokenExpiresAt", testExpiresAt);
 
-      loginStatus.textContent =
-        "Login successful. Welcome!";
+      loginStatus.textContent = "Login successful. Welcome!";
       loginStatus.style.color = "green";
 
       return;
@@ -127,8 +122,7 @@ form.addEventListener("submit", async (e) => {
   } catch (error) {
     localStorage.setItem("logged", "false");
 
-    loginStatus.textContent =
-      "An error occurred. Please try again.";
+    loginStatus.textContent = "An error occurred. Please try again.";
     loginStatus.style.color = "red";
   }
 });
