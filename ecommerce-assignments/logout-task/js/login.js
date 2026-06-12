@@ -100,7 +100,7 @@ form.addEventListener("submit", async (e) => {
         method: "POST",
         headers: {
           "X-API-Key":
-            "05bce3c3b87a319f44cdd405aa1e03019f41d38c49c64436a82198a6a36daf51",
+            "d7534cbd9ee8a1d277508f05318830010270e1c3699cacf82f8ec53f79b486a2",
         },
         body: JSON.stringify({
           username,
@@ -115,7 +115,7 @@ form.addEventListener("submit", async (e) => {
     if (data.token) {
       localStorage.setItem("logged", "true");
       localStorage.setItem("token", data.token);
-      
+
       const testExpiresAt = new Date(Date.now() + 60 * 1000).toISOString();
       localStorage.setItem("tokenExpiresAt", testExpiresAt);
 
