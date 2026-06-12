@@ -40,8 +40,6 @@ console.log("Preostalo vreme (sek):", Math.floor(remainingTime / 1000));
 
 // Auto logout
 setTimeout(() => {
-  console.log("Istek vremena. Pokrećem logout...");
-
   localStorage.removeItem("logged");
   localStorage.removeItem("token");
   localStorage.removeItem("tokenExpiresAt");
