@@ -37,17 +37,26 @@ const products = [
     size: "S",
     quantity: 1,
     image: "products/jeans.png"
-  }
+  },
 ]
 
-const Cart = () => (
-  <>
-    <h1>Cart</h1>
+const Cart = () => {
+  const total = products.reduce(
+    (sum, product) => sum + product.price * product.quantity,
+    0,
+  )
 
-    {products.map((item) => (
-      <CartItem key={item.id} item={item} />
-    ))}
-  </>
-)
+  return (
+    <div className="cart">
+      <h1>Cart</h1>
+
+      {products.map((item) => (
+        <CartItem key={item.id} item={item} />
+      ))}
+
+      <h2 className="cart-total">${total}</h2>
+    </div>
+  )
+}
 
 export default Cart
