@@ -1,5 +1,6 @@
 import "./styles/App.css"
+import Cart from "./components/Cart"
 
-const App = () => <h1>Cart</h1>
+const App = () => <Cart />
 
 export default App
