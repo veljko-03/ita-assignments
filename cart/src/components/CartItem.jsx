@@ -2,12 +2,11 @@ import "../styles/Cart.css"
 
 const CartItem = ({ item, increaseQuantity, decreaseQuantity, removeProduct }) => (
   <div className="cart-item">
-    <img src={item.image} alt={item.name} className="cart-item-image" />
+    <img src={`/images/${item.id}.png`} alt={item.title} className="cart-item-image" />
 
     <div className="cart-item-details">
-      <h3>{item.name}</h3>
-      <p>Color: {item.color}</p>
-      <p>Size: {item.size}</p>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
 
       <div className="quantity-control">
         <button
