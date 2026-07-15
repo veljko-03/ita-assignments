@@ -67,7 +67,7 @@ const Cart = () => {
   }
 
   if (products.length === 0) {
-    return <h2>Your cart is empty.</h2>;
+    return <h2>Your cart is empty.</h2>
   }
 
   return (
