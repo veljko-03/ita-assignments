@@ -1,12 +1,8 @@
 import "../styles/Cart.css"
 
-const CartItem = ({ item }) => (
+const CartItem = ({ item, increaseQuantity, decreaseQuantity }) => (
   <div className="cart-item">
-    <img
-      src={item.image}
-      alt={item.name}
-      className="cart-item-image"
-    />
+    <img src={item.image} alt={item.name} className="cart-item-image" />
 
     <div className="cart-item-details">
       <h3>{item.name}</h3>
@@ -14,9 +10,17 @@ const CartItem = ({ item }) => (
       <p>Size: {item.size}</p>
 
       <div className="quantity-control">
-        <button className="quantity-btn">−</button>
+        <button
+          className="quantity-btn"
+          onClick={() => decreaseQuantity(item.id)}>
+          −
+        </button>
         <span>{item.quantity}</span>
-        <button className="quantity-btn">+</button>
+        <button
+          className="quantity-btn"
+          onClick={() => increaseQuantity(item.id)}>
+          +
+        </button>
       </div>
     </div>
 
