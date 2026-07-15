@@ -1,3 +1,7 @@
+h1 {
+  color: #141414;
+}
+
 .cart {
   width: 50%;
   max-width: 900px;
@@ -29,6 +33,7 @@
 .cart-item-details h3 {
   margin: 0;
   font-size: 20px;
+  color: rgb(67, 67, 67);
 }
 
 .cart-item-details p {
@@ -47,6 +52,7 @@
 .cart-item-price {
   font-size: 20px;
   font-weight: bold;
+  color: rgb(21, 21, 21);
 }
 
 .remove-btn {
@@ -60,6 +66,8 @@
 .cart-total {
   text-align: right;
   margin: 20px 0 40px 0;
+  color: #111;
+  font-weight: bold;
 }
 
 .quantity-control {
@@ -73,6 +81,7 @@
   min-width: 20px;
   text-align: center;
   font-size: 16px;
+  color: #111
 }
 
 .quantity-btn {
@@ -80,6 +89,7 @@
   height: 26px;
   border: 1px solid #ccc;
   background: white;
+  color: #111;
   cursor: pointer;
   font-size: 18px;
   display: flex;
