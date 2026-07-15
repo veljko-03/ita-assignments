@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "../styles/Cart.css"
 import CartItem from "./CartItem"
 
@@ -75,6 +75,14 @@ const Cart = () => {
     (sum, product) => sum + product.price * product.quantity,
     0,
   )
+
+  useEffect(() => {
+    if (products.length === 0) {
+      console.log("Your cart is empty.");
+    } else {
+      console.log("Cart updated:", products);
+    }
+  }, [products]);
 
   return (
     <div className="cart">
