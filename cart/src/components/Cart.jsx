@@ -66,6 +66,10 @@ const Cart = () => {
     return <h2>Something went wrong.</h2>
   }
 
+  if (products.length === 0) {
+    return <h2>Your cart is empty.</h2>;
+  }
+
   return (
     <div className="cart">
       <h1>Cart</h1>
