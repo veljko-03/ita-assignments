@@ -1,48 +1,12 @@
 import { useState, useEffect } from "react"
 import "../styles/Cart.css"
 import CartItem from "./CartItem"
-
-const initialProducts = [
-  {
-    id: 1,
-    name: "Blazer",
-    price: 95,
-    color: "Beige",
-    size: "S",
-    quantity: 1,
-    image: "products/blazer.png"
-  },
-  {
-    id: 2,
-    name: "Chunky Knit Sweater",
-    price: 55,
-    color: "Brown",
-    size: "M",
-    quantity: 1,
-    image: "products/sweater.png"
-  },
-  {
-    id: 3,
-    name: "Mesh Sleeve Blouse",
-    price: 32,
-    color: "Yellow",
-    size: "S",
-    quantity: 1,
-    image: "products/blouse.png"
-  },
-  {
-    id: 4,
-    name: "Retro Jeans",
-    price: 70,
-    color: "Black",
-    size: "S",
-    quantity: 1,
-    image: "products/jeans.png"
-  }
-]
+import { apiRequest } from "../api/apiClient"
 
 const Cart = () => {
-  const [products, setProducts] = useState(initialProducts)
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const increaseQuantity = (id) => {
     setProducts(
@@ -77,12 +41,31 @@ const Cart = () => {
   )
 
   useEffect(() => {
-    if (products.length === 0) {
-      console.log("Your cart is empty.");
-    } else {
-      console.log("Cart updated:", products);
+    const fetchCart = async () => {
+      try {
+        setLoading(true)
+        setError(null)
+
+        const data = await apiRequest("/carts/1")
+
+        setProducts(data.products)
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
     }
-  }, [products]);
+
+    fetchCart()
+  }, [])
+
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
+  
+  if (error) {
+    return <h2>Error: {error}</h2>
+  }
 
   return (
     <div className="cart">
