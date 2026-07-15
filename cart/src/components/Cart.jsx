@@ -4,9 +4,9 @@ import CartItem from "./CartItem"
 import { apiRequest } from "../api/apiClient"
 
 const Cart = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   const increaseQuantity = (id) => {
     setProducts(
@@ -46,25 +46,24 @@ const Cart = () => {
         setLoading(true)
         setError(null)
 
-        const data = await apiRequest("/carts/1")
+        const response = await apiRequest("/carts/1")
 
-        setProducts(data.products)
+        setProducts(response.products)
+        setLoading(false)
       } catch (err) {
-        setError(err.message)
-      } finally {
+        setError(err)
         setLoading(false)
       }
     }
-
     fetchCart()
   }, [])
 
   if (loading) {
     return <h2>Loading...</h2>
   }
-  
+
   if (error) {
-    return <h2>Error: {error}</h2>
+    return <h2>Something went wrong.</h2>
   }
 
   return (
