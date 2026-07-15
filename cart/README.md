@@ -9,3 +9,6 @@ Na dnu korpe treba prikazati ukupan iznos svih proizvoda.
 Potrebno je da unapredite komponentu Cart iz prethodnog assignmenta. U prethodnom zadatku korpa je prikazivala niz proizvoda i ukupan iznos. Sada je potrebno dodati interakciju: korisniku treba omogućiti da poveća ili smanji količinu proizvoda, kao i da ukloni proizvod iz korpe.
 
 Nakon svake promene, ukupan iznos korpe treba automatski da se ažurira.
+
+## assignment03
+Potrebno je da unapredite komponentu Cart iz prethodnih assignmenata tako da umesto statičkih podataka koristi podatke sa servera. U ovom zadatku korpa više neće koristiti lokalni niz proizvoda, već će podatke učitavati sa API-ja. Prilikom učitavanja potrebno je obraditi odgovarajuće loading i error stanje.
