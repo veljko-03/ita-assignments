@@ -67,6 +67,10 @@ const Cart = () => {
     )
   }
 
+  const removeProduct = (id) => {
+    setProducts(products.filter((product) => product.id !== id));
+  }
+
   const total = products.reduce(
     (sum, product) => sum + product.price * product.quantity,
     0,
@@ -82,6 +86,7 @@ const Cart = () => {
           item={item}
           increaseQuantity={increaseQuantity}
           decreaseQuantity={decreaseQuantity}
+          removeProduct={removeProduct}
         />
       ))}
 

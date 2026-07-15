@@ -1,6 +1,6 @@
 import "../styles/Cart.css"
 
-const CartItem = ({ item, increaseQuantity, decreaseQuantity }) => (
+const CartItem = ({ item, increaseQuantity, decreaseQuantity, removeProduct }) => (
   <div className="cart-item">
     <img src={item.image} alt={item.name} className="cart-item-image" />
 
@@ -26,7 +26,7 @@ const CartItem = ({ item, increaseQuantity, decreaseQuantity }) => (
 
     <div className="cart-item-actions">
       <p className="cart-item-price">${item.price}</p>
-      <button className="remove-btn">Remove</button>
+      <button className="remove-btn" onClick={() => removeProduct(item.id)}>Remove</button>
     </div>
   </div>
 )
