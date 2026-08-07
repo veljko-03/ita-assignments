@@ -1,5 +1,6 @@
 import "../styles/Home.css"
 import CategoryCard from "../components/CategoryCard"
+import Title from "../components/Title";
 
 const brands = [
   { name: "Bershka", logo: "brands/bershka.png" },
@@ -26,7 +27,7 @@ const categories = [
 const HomePage = () => (
   <main className="home">
     <section className="hero">
-      <h1>Discover Brands</h1>
+      <Title title="Discover Brands" />
 
       <p>
         Discover a collection that blends style and comfort. Browse our
@@ -44,7 +45,7 @@ const HomePage = () => (
     </section>
 
     <section className="categories-section">
-      <h2>New Arrivals</h2>
+      <Title title="New Arrivals" />
       
         <div className="categories">
           {categories.map((category) => (

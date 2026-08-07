@@ -1,5 +1,11 @@
-/*
+.title {
+  font-size: 2rem;
+  color: #111;
+  margin-bottom: 2rem;
+}
 
-App styles
-
-*/
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.2rem;
+  }
+}
