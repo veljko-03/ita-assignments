@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom"
 import "../styles/Home.css"
 import CategoryCard from "../components/CategoryCard"
 import Title from "../components/Title"
+import Button from "../components/Button"
 
 const brands = [
   { name: "Bershka", logo: "brands/bershka.png" },
@@ -20,33 +22,40 @@ const categories = [
   },
   {
     title: "Kids",
-    image: "categories/kids.jpg",
-  },
+    image: "categories/kids.jpg"
+  }
 ]
 
-const HomePage = () => (
-  <main className="home">
-    <section className="hero">
-      <Title title="Discover Brands" />
+const HomePage = () => {
+  const navigate = useNavigate()
 
-      <p>
-        Discover a collection that blends style and comfort. Browse our
-        carefully selected pieces of modern clothing that follow the latest
-        trends while staying true to your unique style.
-      </p>
+  const handleShopRedirect = () => {
+    navigate("/shop");
+  }
 
-      <div className="brands">
-        {brands.map((brand) => (
-          <div key={brand.name} className="brand-card">
-            <img src={brand.logo} alt={brand.name} />
-          </div>
-        ))}
-      </div>
-    </section>
+  return (
+    <main className="home">
+      <section className="hero">
+        <Title title="Discover Brands" />
 
-    <section className="categories-section">
-      <Title title="New Arrivals" />
-      
+        <p>
+          Discover a collection that blends style and comfort. Browse our
+          carefully selected pieces of modern clothing that follow the latest
+          trends while staying true to your unique style.
+        </p>
+
+        <div className="brands">
+          {brands.map((brand) => (
+            <div key={brand.name} className="brand-card">
+              <img src={brand.logo} alt={brand.name} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="categories-section">
+        <Title title="New Arrivals" />
+
         <div className="categories">
           {categories.map((category) => (
             <CategoryCard
@@ -57,7 +66,17 @@ const HomePage = () => (
           ))}
         </div>
       </section>
-  </main>
-)
+
+      <section className="promo-section">
+        <img src="banner.png" className="banner" alt="Season promotion" />
+
+        <div className="promo-content">
+          <Title title="Enjoy 20% Off This Season's Styles" />
+          <Button btnLabel="Show All" onClick={handleShopRedirect} />
+        </div>
+      </section>
+    </main>
+  )
+}
 
 export default HomePage

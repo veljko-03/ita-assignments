@@ -72,6 +72,24 @@
   color: #111;
 }
 
+/* PROMO SECTION */
+.banner {
+  width: 100%;
+}
+
+.promo-section {
+  margin-top: 5rem;
+  text-align: center;
+  background: #f8f8f8;
+  border-radius: 24px;
+  overflow: hidden;
+  padding-bottom: 3rem;
+}
+
+.promo-content {
+  padding: 2.5rem 2rem 0;
+}
+
 /* RESPONSIVNESS */
 @media (max-width: 900px) {
   .brands {
@@ -80,6 +98,17 @@
 
   .categories {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .promo-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .banner {
+    max-width: 100%;
+    height: 300px;
   }
 }
 
@@ -103,5 +132,13 @@
 
   .categories {
     grid-template-columns: 1fr;
+  }
+
+  .banner {
+    height: 250px;
+  }
+
+  .promo-content {
+    padding: 2rem 1rem 0;
   }
 }
