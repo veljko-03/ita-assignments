@@ -9,8 +9,13 @@ const Navbar = () => (
       </Link>
     </div>
 
+    <div className="nav-links">
+      <Link to="/" className="nav-link">Home</Link>
+      <Link to="/about" className="nav-link">About Us</Link>
+    </div>
+
     <nav className="nav">
-      <Link to="/" className="cart-btn">
+      <Link to="/cart" className="cart-btn">
         <img src="cart-icon.svg" alt="Cart" />
       </Link>
 

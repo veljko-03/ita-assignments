@@ -20,6 +20,18 @@
   gap: 16px;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
+
 /* CART BUTTON */
 .cart-btn {
   position: relative;
