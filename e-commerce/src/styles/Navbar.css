@@ -1,0 +1,115 @@
+.header {
+  background-color: #ffffff;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #111;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* CART BUTTON */
+.cart-btn {
+  position: relative;
+  border: none;
+  background: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* RESPONSIVNESS */
+@media (max-width: 768px) {
+  .header {
+    padding: 14px 20px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .login-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .cart-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cart-btn img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .login-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .cart-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .cart-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
