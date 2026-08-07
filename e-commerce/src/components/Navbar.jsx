@@ -1,30 +1,43 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "../styles/Navbar.css"
+import Button from "./Button"
 
-const Navbar = () => (
-  <header className="header">
-    <div className="logo">
-      <Link to="/" className="logo">
-        Shop
-      </Link>
-    </div>
+const Navbar = () => {
+  const navigate = useNavigate()
 
-    <div className="nav-links">
-      <Link to="/" className="nav-link">Home</Link>
-      <Link to="/shop" className="nav-link">Shop</Link>
-      <Link to="/about" className="nav-link">About Us</Link>
-    </div>
+  const handleLoginRedirect = () => {
+    navigate("/login");
+  }
 
-    <nav className="nav">
-      <Link to="/cart" className="cart-btn">
-        <img src="cart-icon.svg" alt="Cart" />
-      </Link>
+  return (
+    <header className="header">
+      <div className="logo">
+        <Link to="/" className="logo">
+          Shop
+        </Link>
+      </div>
 
-      <Link to="/login" className="login-btn">
-        Login
-      </Link>
-    </nav>
-  </header>
-)
+      <div className="nav-links">
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+        <Link to="/shop" className="nav-link">
+          Shop
+        </Link>
+        <Link to="/about" className="nav-link">
+          About Us
+        </Link>
+      </div>
 
-export default Navbar;
+      <nav className="nav">
+        <Link to="/cart" className="cart-btn">
+          <img src="cart-icon.svg" alt="Cart" />
+        </Link>
+
+        <Button btnLabel="Login" onClick={handleLoginRedirect} />
+      </nav>
+    </header>
+  )
+}
+
+export default Navbar

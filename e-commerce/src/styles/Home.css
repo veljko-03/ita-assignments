@@ -72,21 +72,6 @@
   color: #111;
 }
 
-.category-content button {
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  padding: 10px 24px;
-  border-radius: 12px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.category-content button:hover {
-  background-color: #1d4ed8;
-}
-
 /* RESPONSIVNESS */
 @media (max-width: 900px) {
   .brands {
