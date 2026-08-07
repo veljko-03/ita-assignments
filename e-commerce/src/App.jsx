@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom"
 import "./styles/App.css"
 import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
 import HomePage from "./pages/Home"
 import LoginPage from "./pages/Login"
 import CartPage from "./pages/Cart"
@@ -18,6 +19,8 @@ const App = () => (
       <Route path="/about" element={<AboutPage />} />
       <Route path="/shop" element={<ShopPage />} />
     </Routes>
+
+    <Footer />
   </>
 )
 
