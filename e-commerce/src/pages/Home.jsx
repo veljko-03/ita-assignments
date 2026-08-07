@@ -1,6 +1,6 @@
 import "../styles/Home.css"
 import CategoryCard from "../components/CategoryCard"
-import Title from "../components/Title";
+import Title from "../components/Title"
 
 const brands = [
   { name: "Bershka", logo: "brands/bershka.png" },
@@ -22,7 +22,7 @@ const categories = [
     title: "Kids",
     image: "categories/kids.jpg",
   },
-];
+]
 
 const HomePage = () => (
   <main className="home">
