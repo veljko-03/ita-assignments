@@ -1,4 +1,5 @@
 import "../styles/Home.css"
+import CategoryCard from "../components/CategoryCard"
 
 const brands = [
   { name: "Bershka", logo: "brands/bershka.png" },
@@ -6,6 +7,21 @@ const brands = [
   { name: "Koton", logo: "brands/koton.png" },
   { name: "Zara", logo: "brands/zara.png" },
 ]
+
+const categories = [
+  {
+    title: "Women",
+    image: "categories/women.jpg",
+  },
+  {
+    title: "Men",
+    image: "categories/men.jpg",
+  },
+  {
+    title: "Kids",
+    image: "categories/kids.jpg",
+  },
+];
 
 const HomePage = () => (
   <main className="home">
@@ -26,6 +42,20 @@ const HomePage = () => (
         ))}
       </div>
     </section>
+
+    <section className="categories-section">
+      <h2>New Arrivals</h2>
+      
+        <div className="categories">
+          {categories.map((category) => (
+            <CategoryCard
+              key={category.title}
+              image={category.image}
+              title={category.title}
+            />
+          ))}
+        </div>
+      </section>
   </main>
 )
 
