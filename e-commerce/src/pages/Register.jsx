@@ -1,52 +1,42 @@
-import { Link } from "react-router-dom"
 import "../styles/Forms.css"
 import Title from "../components/Title"
 import Button from "../components/Button"
 import Input from "../components/Input"
+import FormRedirectLink from "../components/FormRedirectLink"
 
 const RegisterPage = () => {
   return (
-    <main className="login-page">
-      <div className="login-container">
+    <main className="form-page">
+      <div className="form-container">
         <Title title="Register" />
 
-        <form className="login-form">
-          <div className="form-group">
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-              label="E-mail"
-            />
-          </div>
+        <form className="form">
+          <Input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            label="E-mail"
+          />
 
-          <div className="form-group">
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-              label="Password"
-            />
-          </div>
+          <Input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            label="Password"
+          />
 
-          <div className="form-group">
-            <Input
-              type="date"
-              id="date"
-              name="date"
-              label="Date of birth"
-            />
-          </div>
+          <Input type="date" id="date" name="date" label="Date of birth" />
 
           <Button btnLabel="Register" />
         </form>
 
-        <p className="register-text">
-          You already have an account?
-          <Link to="/login">Log in</Link>
-        </p>
+        <FormRedirectLink
+          linkTo="/login"
+          redirectText="You already have an account?"
+          redirectLink="Login"
+        />
       </div>
     </main>
   )
