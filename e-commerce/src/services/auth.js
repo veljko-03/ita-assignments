@@ -1,4 +1,4 @@
-const AUTH_STORAGE_KEY = "auth";
+const AUTH_STORAGE_KEY = import.meta.env.VITE_AUTH_STORAGE_KEY;
 
 export const saveAuth = (authData) => {
   sessionStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify(authData));

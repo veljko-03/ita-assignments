@@ -1,11 +1,10 @@
-const API_URL = "https://api.advanziaeducation.com/users";
-const LOGIN_URL = "https://api.advanziaeducation.com/auth/login";
+const REGISTER_URL = import.meta.env.VITE_REGISTER_URL;
+const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
 
-const API_KEY =
-  "d7534cbd9ee8a1d277508f05318830010270e1c3699cacf82f8ec53f79b486a2";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 export const registerUser = async ({ email, password }) => {
-  const response = await fetch(API_URL, {
+  const response = await fetch(REGISTER_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
