@@ -15,14 +15,17 @@ const categories = [
   {
     title: "Women",
     image: "categories/women.jpg",
+    category: "Women Clothing"
   },
   {
     title: "Men",
     image: "categories/men.jpg",
+    category: "Men Clothing"
   },
   {
     title: "Kids",
-    image: "categories/kids.jpg"
+    image: "categories/kids.jpg",
+    category: "Kid Clothing"
   }
 ]
 
@@ -62,6 +65,7 @@ const HomePage = () => {
               key={category.title}
               image={category.image}
               title={category.title}
+              category={category.category}
             />
           ))}
         </div>

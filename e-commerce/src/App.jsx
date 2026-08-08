@@ -20,6 +20,7 @@ const App = () => (
       <Route path="/cart" element={<CartPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/shop" element={<ShopPage />} />
+      <Route path="/shop/:category" element={<ShopPage />} />
     </Routes>
 
     <Footer />

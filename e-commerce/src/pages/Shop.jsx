@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { getProducts } from "../services/productService"
 import "../styles/Shop.css"
 import Title from "../components/Title"
 import ProductCard from "../components/ProductCard"
 
 const ShopPage = () => {
+  const { category } = useParams()
+
   const [products, setProducts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState("")
@@ -29,6 +32,13 @@ const ShopPage = () => {
     fetchProducts()
   }, [])
 
+  const filteredProducts = category
+    ? products.filter(
+        (product) =>
+          product.category.toLowerCase() === category.toLowerCase()
+      )
+    : products
+
   if (isLoading) {
     return <p>Loading products...</p>
   }
@@ -39,16 +49,20 @@ const ShopPage = () => {
 
   return (
     <main>
-      <Title title="Shop" />
+      <Title title={category || "Shop"} />
 
       <div className="products-grid">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}
             product={product}
           />
         ))}
       </div>
+
+      {filteredProducts.length === 0 && (
+        <p>No products found in this category.</p>
+      )}
     </main>
   )
 }
