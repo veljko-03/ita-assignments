@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+
 import "../styles/Forms.css"
 import Title from "../components/Title"
 import Button from "../components/Button"
 import Input from "../components/Input"
 import FormRedirectLink from "../components/FormRedirectLink"
+
 import { registerUser } from "../services/userService"
 import { validateRegisterForm } from "../utils/validation"
 
@@ -47,10 +49,8 @@ const RegisterPage = () => {
 
     // Validate form
     const validationErrors = validateRegisterForm(formData)
-
     setErrors(validationErrors)
 
-    // Don't send request if validation failed
     if (Object.keys(validationErrors).length > 0) {
       return
     }

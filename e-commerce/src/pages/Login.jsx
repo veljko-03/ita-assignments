@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+
 import "../styles/Forms.css"
 import Title from "../components/Title"
 import Button from "../components/Button"
 import Input from "../components/Input"
 import FormRedirectLink from "../components/FormRedirectLink"
+
 import { loginUser } from "../services/userService"
 import { validateLoginForm } from "../utils/validation"
 import { saveAuth } from "../services/auth"
@@ -28,6 +30,7 @@ const LoginPage = () => {
       [name]: value,
     }))
 
+    // Remove the error for this field when the user changes it
     setErrors((previousErrors) => ({
       ...previousErrors,
       [name]: "",
@@ -41,8 +44,8 @@ const LoginPage = () => {
 
     setApiError("")
 
+    // Validate form
     const validationErrors = validateLoginForm(formData)
-
     setErrors(validationErrors)
 
     if (Object.keys(validationErrors).length > 0) {
