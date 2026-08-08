@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import "../styles/Forms.css"
 import Title from "../components/Title"
 import Button from "../components/Button"
@@ -13,6 +14,7 @@ const RegisterPage = () => {
     password: "",
     date: "",
   })
+  const navigate = useNavigate()
 
   const [errors, setErrors] = useState({})
   const [apiError, setApiError] = useState("")
@@ -61,6 +63,7 @@ const RegisterPage = () => {
       console.log("Registration successful:", result)
 
       setSuccessMessage("Registration successful!")
+      navigate("/login")
 
       // Clear form
       setFormData({

@@ -35,3 +35,19 @@ export const validateRegisterForm = ({
 
   return errors;
 };
+
+export const validateLoginForm = ({ email, password }) => {
+  const errors = {};
+
+  if (!email.trim()) {
+    errors.email = "E-mail is required.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = "Please enter a valid e-mail address.";
+  }
+
+  if (!password) {
+    errors.password = "Password is required.";
+  }
+
+  return errors;
+};
