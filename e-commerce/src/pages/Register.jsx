@@ -4,11 +4,11 @@ import Title from "../components/Title"
 import Button from "../components/Button"
 import Input from "../components/Input"
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
     <main className="login-page">
       <div className="login-container">
-        <Title title="Log in" />
+        <Title title="Register" />
 
         <form className="login-form">
           <div className="form-group">
@@ -31,16 +31,25 @@ const LoginPage = () => {
             />
           </div>
 
-          <Button btnLabel="Log in" />
+          <div className="form-group">
+            <Input
+              type="date"
+              id="date"
+              name="date"
+              label="Date of birth"
+            />
+          </div>
+
+          <Button btnLabel="Register" />
         </form>
 
         <p className="register-text">
-          Don't have an account?
-          <Link to="/register">Register</Link>
+          You already have an account?
+          <Link to="/login">Log in</Link>
         </p>
       </div>
     </main>
   )
 }
 
-export default LoginPage
+export default RegisterPage
