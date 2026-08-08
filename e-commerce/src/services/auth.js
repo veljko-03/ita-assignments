@@ -14,6 +14,10 @@ export const getAuth = () => {
   return JSON.parse(auth);
 };
 
+export const removeAuth = () => {
+  sessionStorage.removeItem(AUTH_STORAGE_KEY);
+};
+
 export const getToken = () => {
   const auth = getAuth();
 
@@ -26,7 +30,7 @@ export const getExpiresAt = () => {
   return auth?.expiresAt || null;
 };
 
-export const isAuthenticated = () => {
+export const isAuthValid = () => {
   const auth = getAuth();
 
   if (!auth?.token || !auth?.expiresAt) {
