@@ -1,7 +1,7 @@
 import "../styles/App.css"
 
-const Button = ({ onClick, btnLabel }) => (
-  <button className="btn" onClick={onClick}>
+const Button = ({ onClick, btnLabel, type = "button", disabled = false }) => (
+  <button className="btn" onClick={onClick} type={type} disabled={disabled}>
     {btnLabel}
   </button>
 )

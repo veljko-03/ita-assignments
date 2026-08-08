@@ -72,6 +72,27 @@
   text-decoration: none;
 }
 
+.input-error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.form-error {
+  color: red;
+  margin: 10px 0;
+}
+
+.form-success {
+  color: green;
+  margin: 10px 0;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* RESPONSIVNESS */
 @media (max-width: 480px) {
   .form-page {
