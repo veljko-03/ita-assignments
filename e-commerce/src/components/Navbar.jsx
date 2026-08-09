@@ -1,12 +1,20 @@
+import { useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "../styles/Navbar.css"
 import Button from "./Button"
+import { AuthContext } from "../store/context/AuthContext"
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const { isAuthenticated, logout } = useContext(AuthContext)
 
   const handleLoginRedirect = () => {
-    navigate("/login");
+    navigate("/login")
+  }
+
+  const handleLogout = () => {
+    logout()
+    navigate("/")
   }
 
   return (
@@ -34,7 +42,11 @@ const Navbar = () => {
           <img src="cart-icon.svg" alt="Cart" />
         </Link>
 
-        <Button btnLabel="Login" onClick={handleLoginRedirect} />
+        {isAuthenticated ? (
+          <Button btnLabel="Log out" onClick={handleLogout} />
+        ) : (
+          <Button btnLabel="Log in" onClick={handleLoginRedirect} />
+        )}
       </nav>
     </header>
   )

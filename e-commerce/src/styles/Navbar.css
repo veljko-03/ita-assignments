@@ -63,6 +63,11 @@
   background-color: #1d4ed8;
 }
 
+.profile.btn {
+  background: none;
+  border: none;
+}
+
 /* RESPONSIVNESS */
 @media (max-width: 768px) {
   .header {

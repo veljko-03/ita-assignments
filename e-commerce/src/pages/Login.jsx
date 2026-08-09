@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import "../styles/Forms.css"
@@ -10,6 +10,7 @@ import FormRedirectLink from "../components/FormRedirectLink"
 import { loginUser } from "../services/userService"
 import { validateLoginForm } from "../utils/validation"
 import { saveAuth } from "../services/auth"
+import { AuthContext } from "../store/context/AuthContext"
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ const LoginPage = () => {
     password: "",
   })
   const navigate = useNavigate()
+  const { login } = useContext(AuthContext)
 
   const [errors, setErrors] = useState({})
   const [apiError, setApiError] = useState("")
@@ -64,6 +66,7 @@ const LoginPage = () => {
 
       console.log("Login successful")
 
+      login(data)
       navigate("/shop")
     } catch (error) {
       console.error("Login error:", error)
