@@ -8,6 +8,7 @@ import RegisterPage from "./pages/Register"
 import CartPage from "./pages/Cart"
 import AboutPage from "./pages/About"
 import ShopPage from "./pages/Shop"
+import ProductDetails from "./pages/ProductDetails"
 
 const App = () => (
   <>
@@ -21,6 +22,7 @@ const App = () => (
       <Route path="/about" element={<AboutPage />} />
       <Route path="/shop" element={<ShopPage />} />
       <Route path="/shop/:category" element={<ShopPage />} />
+      <Route path="/products/:id" element={<ProductDetails />} />
     </Routes>
 
     <Footer />
