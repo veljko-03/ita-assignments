@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 import "../styles/ProductDetails.css"
 import Button from "../components/Button"
 import Title from "../components/Title"
 import { getProductById } from "../services/productService"
+import { CartContext } from "../store/context/CartContext"
 
 
 const sizes = ["S", "M", "L", "XL"]
 
 const ProductDetails = () => {
   const { id } = useParams()
+  const { addToCart } = useContext(CartContext)
 
   const [product, setProduct] = useState(null)
   const [selectedSize, setSelectedSize] = useState("")
@@ -53,6 +55,8 @@ const ProductDetails = () => {
       product,
       size: selectedSize,
     })
+
+    addToCart(product, selectedSize)
   }
 
   if (isLoading) {
