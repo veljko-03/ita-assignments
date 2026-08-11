@@ -1,8 +1,8 @@
-const REGISTER_URL = import.meta.env.VITE_REGISTER_URL;
-const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
-const USERS_URL = import.meta.env.VITE_USERS_URL;
+const REGISTER_URL = import.meta.env.VITE_REGISTER_URL
+const LOGIN_URL = import.meta.env.VITE_LOGIN_URL
+const USERS_URL = import.meta.env.VITE_USERS_URL
 
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY
 
 export const registerUser = async ({ email, password }) => {
   const response = await fetch(REGISTER_URL, {
@@ -16,24 +16,22 @@ export const registerUser = async ({ email, password }) => {
       email,
       password,
     }),
-  });
+  })
 
-  let data = null;
+  let data = null
 
   try {
-    data = await response.json();
+    data = await response.json()
   } catch {
     //
   }
 
   if (!response.ok) {
-    throw new Error(
-      data?.message || data?.error || "Registration failed."
-    );
+    throw new Error(data?.message || data?.error || "Registration failed.")
   }
 
-  return data;
-};
+  return data
+}
 
 export const loginUser = async ({ email, password }) => {
   const response = await fetch(LOGIN_URL, {
@@ -46,24 +44,22 @@ export const loginUser = async ({ email, password }) => {
       username: email,
       password,
     }),
-  });
+  })
 
-  let data = null;
+  let data = null
 
   try {
-    data = await response.json();
+    data = await response.json()
   } catch {
     //
   }
 
   if (!response.ok) {
-    throw new Error(
-      data?.message || data?.error || "Login failed."
-    );
+    throw new Error(data?.message || data?.error || "Login failed.")
   }
 
-  return data;
-};
+  return data
+}
 
 export const getUsers = async () => {
   const response = await fetch(USERS_URL, {
@@ -76,12 +72,8 @@ export const getUsers = async () => {
   const data = await response.json()
 
   if (!response.ok) {
-    throw new Error(
-      data?.message ||
-      data?.error ||
-      "Failed to fetch users."
-    )
+    throw new Error(data?.message || data?.error || "Failed to fetch users.")
   }
 
   return data
-};
+}

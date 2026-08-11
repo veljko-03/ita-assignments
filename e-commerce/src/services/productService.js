@@ -1,5 +1,5 @@
-const API_URL = import.meta.env.VITE_PRODUCTS_URL;
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_URL = import.meta.env.VITE_PRODUCTS_URL
+const API_KEY = import.meta.env.VITE_API_KEY
 
 export const getProducts = async () => {
   const response = await fetch(API_URL, {
@@ -7,18 +7,16 @@ export const getProducts = async () => {
     headers: {
       "X-API-Key": API_KEY,
     },
-  });
+  })
 
-  const data = await response.json();
+  const data = await response.json()
 
   if (!response.ok) {
-    throw new Error(
-      data?.message || data?.error || "Failed to fetch products."
-    );
+    throw new Error(data?.message || data?.error || "Failed to fetch products.")
   }
 
-  return data;
-};
+  return data
+}
 
 export const getProductById = async (id) => {
   const response = await fetch(`${API_URL}/${id}`, {
@@ -26,15 +24,13 @@ export const getProductById = async (id) => {
     headers: {
       "X-API-Key": API_KEY,
     },
-  });
+  })
 
-  const data = await response.json();
+  const data = await response.json()
 
   if (!response.ok) {
-    throw new Error(
-      data?.message || data?.error || "Failed to fetch product."
-    );
+    throw new Error(data?.message || data?.error || "Failed to fetch product.")
   }
 
-  return data;
-};
+  return data
+}

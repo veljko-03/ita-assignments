@@ -1,5 +1,5 @@
-const API_URL = import.meta.env.VITE_CART_URL;
-const API_KEY = import.meta.env.VITE_API_KEY;
+const API_URL = import.meta.env.VITE_CART_URL
+const API_KEY = import.meta.env.VITE_API_KEY
 
 export const sendCart = async ({ userId, products }) => {
   const response = await fetch(API_URL, {
@@ -12,23 +12,19 @@ export const sendCart = async ({ userId, products }) => {
       userId,
       products,
     }),
-  });
+  })
 
-  let data = null;
+  let data = null
 
   try {
-    data = await response.json();
+    data = await response.json()
   } catch {
     //
   }
 
   if (!response.ok) {
-    throw new Error(
-      data?.message ||
-        data?.error ||
-        "Failed to send cart.",
-    );
+    throw new Error(data?.message || data?.error || "Failed to send cart.")
   }
 
-  return data;
-};
+  return data
+}
