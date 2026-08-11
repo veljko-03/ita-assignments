@@ -7,7 +7,7 @@ import Button from "../components/Button"
 import Input from "../components/Input"
 import FormRedirectLink from "../components/FormRedirectLink"
 
-import { registerUser } from "../services/userService"
+import { registerUser } from "../services/user"
 import { validateRegisterForm } from "../utils/validation"
 
 const RegisterPage = () => {

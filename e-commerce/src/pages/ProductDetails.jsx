@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import "../styles/ProductDetails.css"
 import Button from "../components/Button"
 import Title from "../components/Title"
-import { getProductById } from "../services/productService"
+import { getProductById } from "../services/product"
 import { CartContext } from "../store/context/CartContext"
 
 

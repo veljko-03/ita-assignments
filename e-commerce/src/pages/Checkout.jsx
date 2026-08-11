@@ -9,7 +9,7 @@ import Input from "../components/Input"
 import Button from "../components/Button"
 
 import { CartContext } from "../store/context/CartContext"
-import { sendCart } from "../services/cartService"
+import { sendCart } from "../services/cart"
 import { getUserId } from "../services/auth"
 
 const CheckoutPage = () => {

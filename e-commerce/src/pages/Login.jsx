@@ -7,7 +7,7 @@ import Button from "../components/Button"
 import Input from "../components/Input"
 import FormRedirectLink from "../components/FormRedirectLink"
 
-import { loginUser, getUsers } from "../services/userService"
+import { loginUser, getUsers } from "../services/user"
 import { validateLoginForm } from "../utils/validation"
 import { saveAuth } from "../services/auth"
 import { AuthContext } from "../store/context/AuthContext"
