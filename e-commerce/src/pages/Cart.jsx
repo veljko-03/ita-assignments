@@ -24,7 +24,7 @@ const CartPage = () => {
 
   // Redirect functions
   const handleCheckoutRedirect = () => {
-    navigate("/")
+    navigate("/checkout")
   }
 
   const handleEmptyCartRedirect = () => {
