@@ -2,9 +2,10 @@ import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 
 import "../styles/Cart.css"
+
 import Title from "../components/Title"
 import Button from "../components/Button"
-import CartItem from "../components/CartItem"
+import CartContent from "../components/CartContent"
 
 import { CartContext } from "../store/context/CartContext"
 
@@ -14,12 +15,12 @@ const CartPage = () => {
     useContext(CartContext)
 
   // Total calculation functions
+  const totalItems = cart.reduce((total, item) => total + item.quantity, 0)
+
   const totalPrice = cart.reduce(
     (total, item) => total + item.product.price * item.quantity,
     0,
   )
-
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0)
 
   // Redirect functions
   const handleCheckoutRedirect = () => {
@@ -52,30 +53,23 @@ const CartPage = () => {
       <Title title="Your Cart" />
 
       <div className="cart-content">
-        <div className="cart-items">
-          {cart.map((item) => (
-            <CartItem
-              key={`${item.product.id}-${item.size}`}
-              item={item}
-              increaseQuantity={increaseQuantity}
-              decreaseQuantity={decreaseQuantity}
-              removeFromCart={removeFromCart}
-            />
-          ))}
-        </div>
+        <CartContent
+          cart={cart}
+          increaseQuantity={increaseQuantity}
+          decreaseQuantity={decreaseQuantity}
+          removeFromCart={removeFromCart}
+        />
 
         <aside className="cart-summary">
           <h2>Order Summary</h2>
 
           <div className="cart-summary-row">
             <span>Items</span>
-
             <span>{totalItems}</span>
           </div>
 
           <div className="cart-summary-row cart-total">
             <span>Total</span>
-
             <span>€{totalPrice.toFixed(2)}</span>
           </div>
 

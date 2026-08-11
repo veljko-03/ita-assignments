@@ -33,6 +33,16 @@
   gap: 20px;
 }
 
+.cart-content-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  font-size: 20px;
+  font-weight: 600;
+}
+
 /* CART ITEM */
 
 .cart-item {
