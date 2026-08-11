@@ -157,10 +157,6 @@
   border-radius: 8px;
 }
 
-.cart-summary h2 {
-  margin: 0 0 25px;
-}
-
 .cart-summary-row {
   display: flex;
   justify-content: space-between;

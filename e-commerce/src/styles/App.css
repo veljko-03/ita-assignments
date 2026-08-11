@@ -4,6 +4,12 @@
   margin-bottom: 2rem;
 }
 
+.subtitle {
+  font-size: 1.4rem;
+  color: #111;
+  margin-bottom: 2rem;
+}
+
 .btn {
   align-items: center;
   background-color: #0A66C2;

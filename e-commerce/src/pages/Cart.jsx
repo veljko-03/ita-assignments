@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import "../styles/Cart.css"
 
 import Title from "../components/Title"
+import Subtitle from "../components/Subtitle"
 import Button from "../components/Button"
 import CartContent from "../components/CartContent"
 
@@ -61,7 +62,7 @@ const CartPage = () => {
         />
 
         <aside className="cart-summary">
-          <h2>Order Summary</h2>
+          <Subtitle subtitle="Order Summary" />
 
           <div className="cart-summary-row">
             <span>Items</span>
