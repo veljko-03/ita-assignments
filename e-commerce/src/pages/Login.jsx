@@ -7,7 +7,7 @@ import Button from "../components/Button"
 import Input from "../components/Input"
 import FormRedirectLink from "../components/FormRedirectLink"
 
-import { loginUser } from "../services/userService"
+import { loginUser, getUsers } from "../services/userService"
 import { validateLoginForm } from "../utils/validation"
 import { saveAuth } from "../services/auth"
 import { AuthContext } from "../store/context/AuthContext"
@@ -58,15 +58,28 @@ const LoginPage = () => {
       setIsLoading(true)
 
       const data = await loginUser(formData)
+      const users = await getUsers()
 
-      saveAuth({
+      const user = users.find(
+        (user) => user.username.toLowerCase() === formData.email.toLowerCase(),
+      )
+
+      if (!user) {
+        throw new Error("Could not find logged-in user.")
+      }
+
+      const authData = {
         token: data.token,
         expiresAt: data.expiresAt,
-      })
+        userId: user.id,
+      }
 
+      saveAuth(authData)
+
+      console.log("User ID:", user.id)
       console.log("Login successful")
 
-      login(data)
+      login(authData)
       navigate("/shop")
     } catch (error) {
       console.error("Login error:", error)

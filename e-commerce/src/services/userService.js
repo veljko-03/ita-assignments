@@ -1,5 +1,6 @@
 const REGISTER_URL = import.meta.env.VITE_REGISTER_URL;
 const LOGIN_URL = import.meta.env.VITE_LOGIN_URL;
+const USERS_URL = import.meta.env.VITE_USERS_URL;
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 
@@ -62,4 +63,25 @@ export const loginUser = async ({ email, password }) => {
   }
 
   return data;
+};
+
+export const getUsers = async () => {
+  const response = await fetch(USERS_URL, {
+    method: "GET",
+    headers: {
+      "X-API-Key": API_KEY,
+    },
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(
+      data?.message ||
+      data?.error ||
+      "Failed to fetch users."
+    )
+  }
+
+  return data
 };

@@ -14,6 +14,12 @@ export const getAuth = () => {
   return JSON.parse(auth);
 };
 
+export const getUserId = () => {
+  const auth = getAuth()
+
+  return auth?.userId || null
+};
+
 export const removeAuth = () => {
   sessionStorage.removeItem(AUTH_STORAGE_KEY);
 };

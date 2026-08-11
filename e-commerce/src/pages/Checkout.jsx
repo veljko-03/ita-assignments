@@ -9,6 +9,8 @@ import Input from "../components/Input"
 import Button from "../components/Button"
 
 import { CartContext } from "../store/context/CartContext"
+import { sendCart } from "../services/cartService"
+import { getUserId } from "../services/auth"
 
 const CheckoutPage = () => {
   const { cart, increaseQuantity, decreaseQuantity, removeFromCart } =
@@ -50,8 +52,25 @@ const CheckoutPage = () => {
     }))
   }
 
-  const handlePay = (event) => {
+  const handlePay = async (event) => {
     event.preventDefault()
+
+    try {
+      const userId = getUserId()
+      const products = cart.map((item) => ({
+        id: item.product.id,
+        quantity: item.quantity,
+      }))
+
+      const data = await sendCart({
+        userId,
+        products,
+      })
+
+      console.log("Cart sent successfully:", data)
+    } catch (error) {
+      console.error("Failed to send cart:", error)
+    }
   }
 
   return (
