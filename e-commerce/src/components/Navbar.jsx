@@ -8,6 +8,7 @@ const Navbar = () => {
   const navigate = useNavigate()
   const { isAuthenticated, logout } = useContext(AuthContext)
 
+  // Redirect functions
   const handleLoginRedirect = () => {
     navigate("/login")
   }

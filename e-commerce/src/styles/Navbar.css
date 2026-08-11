@@ -46,30 +46,6 @@
   transition: 0.3s;
 }
 
-/* LOGIN BUTTON */
-
-.login-btn {
-  border: none;
-  background-color: #2563eb;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 12px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.login-btn:hover {
-  background-color: #1d4ed8;
-}
-
-.profile.btn {
-  background: none;
-  border: none;
-}
-
 /* RESPONSIVENESS */
 
 @media (max-width: 768px) {
@@ -83,11 +59,6 @@
 
   .nav {
     gap: 12px;
-  }
-
-  .login-btn {
-    padding: 8px 14px;
-    font-size: 14px;
   }
 
   .cart-btn {
@@ -116,11 +87,6 @@
     width: 100%;
     justify-content: center;
     gap: 16px;
-  }
-
-  .login-btn {
-    padding: 8px 16px;
-    font-size: 14px;
   }
 
   .cart-btn {
