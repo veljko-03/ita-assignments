@@ -3,6 +3,7 @@
 }
 
 /* FORM */
+
 .form-page {
   min-height: 70vh;
   display: flex;
@@ -27,6 +28,7 @@
 }
 
 /* INPUT */
+
 .input-container {
   display: flex;
   flex-direction: column;
@@ -55,6 +57,7 @@
 }
 
 /* REDIRECT LINK */
+
 .redirect-text {
   text-align: center;
   margin-top: 1.5rem;
@@ -73,6 +76,7 @@
 }
 
 /* INPUT ERROR */
+
 .input-error {
   color: red;
   font-size: 0.875rem;
@@ -94,7 +98,8 @@
   cursor: not-allowed;
 }
 
-/* RESPONSIVNESS */
+/* RESPONSIVENESS */
+
 @media (max-width: 480px) {
   .form-page {
     padding: 2rem 1rem;

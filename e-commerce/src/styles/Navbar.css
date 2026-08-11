@@ -33,6 +33,7 @@
 }
 
 /* CART BUTTON */
+
 .cart-btn {
   position: relative;
   border: none;
@@ -46,6 +47,7 @@
 }
 
 /* LOGIN BUTTON */
+
 .login-btn {
   border: none;
   background-color: #2563eb;
@@ -68,7 +70,8 @@
   border: none;
 }
 
-/* RESPONSIVNESS */
+/* RESPONSIVENESS */
+
 @media (max-width: 768px) {
   .header {
     padding: 14px 20px;

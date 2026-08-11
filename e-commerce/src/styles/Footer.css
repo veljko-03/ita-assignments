@@ -56,14 +56,14 @@
   font-size: 0.9rem;
 }
 
-/* Tablet */
+/* RESPONSIVENESS */
+
 @media (max-width: 768px) {
   .footer-container {
     gap: 2rem;
   }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
   .footer-container {
     flex-direction: column;

@@ -46,7 +46,6 @@
 }
 
 /* Product image */
-
 .cart-item-image {
   display: block;
   width: 120px;
@@ -62,7 +61,6 @@
 }
 
 /* Product information */
-
 .cart-item-info {
   display: flex;
   flex-direction: column;
